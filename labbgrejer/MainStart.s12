@@ -1,0 +1,69 @@
+; Filen MianStart.s12
+		USE	Labdefs.s12
+DisplayStackPos	EQU	$3000
+DrillStackPos	EQU	$2F00
+		ORG	$1000
+		NOP
+		JSR	INIT	
+		JMP	main
+INIT:
+		LDX	#SWITCH
+		STX	$3FF2
+		LDD	#DisplayStack
+		STD	DisplaySP
+		LDD	#DrillStack
+		STD	DrillSP
+		LDAB	#1
+		STAB	isDrillRunning
+		CLI
+		RTS	
+
+SWITCH:
+		LDAB	isDrillRunning
+		CMPB	#1
+		BEQ	DrillInt
+		BRA	DispInt
+DrillInt:	
+		STS	DrillSP
+		MOVB	#0,isDrillRunning
+		CLR	ML19_AckIrq_1
+		;LDS	#DisplayStack
+		LDS	DisplaySP
+		RTI
+DispInt:	
+		STS	DisplaySP
+		MOVB	#1,isDrillRunning
+		CLR	ML19_AckIrq_1
+		;LDS	#DrillStack
+		LDS	DrillSP
+		RTI
+		
+DrillSP		RMB	2
+DisplaySP	RMB	2
+isDrillRunning	RMB	1
+
+		USE	Borr.s12
+		USE	Display_ML5.s12
+		
+
+
+		ORG	DrillStackPos-9
+DrillStack:	
+		FCB	$C0	;CCR
+		FCB	0	;B
+		FCB	0	;A
+		FDB	0	;X
+		FDB	0	;Y
+		FDB	main	;PC?
+		
+		ORG	DisplayStackPos-9
+DisplayStack:	
+		FCB	$C0	;CCR
+		FCB	0	;B
+		FCB	0	;A
+		FDB	0	;X
+		FDB	0	;Y
+		FDB	Display	;PC?
+		
+
+

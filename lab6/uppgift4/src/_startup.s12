@@ -1,0 +1,22 @@
+	segment	init
+	export	_exit
+	export	_cli
+	export	_inthandler
+	import	_main
+	import	_clock_inter
+	function	__start,__start_end
+	
+__start
+	LDS	#$2FFF
+	JSR	_main
+_exit:	NOP
+	BRA	_exit
+	
+_cli:	CLI
+	RTS
+
+_inthandler:
+	JSR	_clock_inter
+	RTI
+	
+__start_end

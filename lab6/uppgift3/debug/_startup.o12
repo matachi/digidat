@@ -1,0 +1,32 @@
+mod:_startup:O12:_startup.o12
+seg:text:0
+seg:init:19
+seg:abs:0
+C:init	CF2FFF160000160000A720FD10EF3D16
+C:init	00000B
+RG:init:_startup:00000004:O:W:_init_clock:24
+RG:init:_startup:00000007:O:W:_main:25
+RG:init:_startup:00000010:O:W:_clock_inter:36
+G:init:_startup:00000009:_exit
+G:init:_startup:0000000F:_inthandler
+G:init:_startup:0000000C:_cli
+G:init:_startup:00000000:__start
+SY:A:M:_startup$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/_startup.s12
+SY:A:X:_startup:20:init:0
+SY:A:X:_startup:24:init:3
+SY:A:X:_startup:25:init:6
+SY:A:X:_startup:26:init:9
+SY:A:X:_startup:27:init:A
+SY:A:X:_startup:29:init:C
+SY:A:X:_startup:30:init:E
+SY:A:X:_startup:36:init:F
+SY:A:X:_startup:37:init:12
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+SY:C:T:_startup: typ16-_startup A (0)(typ4)
+SY:C:S:S:_startup:RTIF:(typ16-_startup)
+SY:C:S:S:_startup:CRGFLG:(typ16-_startup)
+SY:A:F:_startup:init:__start:00000000:19
+SY:A:E:_startup:init:__start:13:50
+e

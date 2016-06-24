@@ -1,0 +1,42 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Irq3.lst
+                            1. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+       0000 0DC0            2. ML19_Stat		EQU	$0DC0
+       0000 0DC2            3. ML19_AckIrq_1		EQU	$0DC2
+       0000 0DC3            4. ML19_AckIrq_2		EQU	$0DC3       0000 0400            5. Port1:		EQU	$0400
+---- File: "Z:\home\matachi\programming\mc12\upg65\Irq3.s12"
+       0000 0401            6. Port2:		EQU	$0401
+                            7. 
+001000                      8. 		ORG	$1000
+001000                      9. main:
+001000 79 10 3A            10. 		CLR	Var1
+001003 79 10 3B            11. 		CLR	Var2
+001006 CE 10 1F            12. 		LDX	#IrqR
+001009 7E 3F F2            13. 		STX	$3FF2
+00100C 10 EF               14. 		CLI
+                           15. 
+00100E                     16. main_loop:
+00100E 72 10 3A            17. 		INC	Var1
+001011 18 0C 10 3A 04 00   18. 		MOVB	Var1,Port1
+001017 18 0C 10 3B 04 01   19. 		MOVB	Var2,Port2
+00101D 20 EF               20. 		BRA	main_loop
+00101F                     21. 		
+00101F                     22. IrqR:
+00101F F6 0D C0            23. IrqR_Event1:	LDAB	ML19_Stat
+001022 C5 01               24. 		BITB	#1
+001024 27 06               25. 		BEQ	IrqR_Event2
+001026 72 10 3B            26. 		INC	Var2
+001029 79 0D C2            27. 		CLR	ML19_AckIrq_1
+00102C C5 02               28. IrqR_Event2:	BITB	#2
+00102E 27 09               29. 		BEQ	IrqR_Return
+001030 79 10 3B            30. 		CLR	Var2
+001033 79 0D C3            31. 		CLR	ML19_AckIrq_2
+001036 06 10 1F            32. 		JMP	IrqR_Event1
+001039 0B                  33. IrqR_Return:	RTI
+00103A                     34. 		
+00103A 00                  35. Var1:		RMB	1
+00103B 00                  36. Var2:		RMB	1

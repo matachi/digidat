@@ -1,0 +1,46 @@
+S0030000FC
+S10D1000CF2FFF16100BA720FD4FA1
+S117100AA71B9FF606006B80B71447566B807B04001B813DDB
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$Z:/home/matachi/programming/mc12/lab6/uppgift1/src/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift1/src/main.c
+SX:C:S:F:main:main:_main:(typ0)
+SX:C:S:F:main:__func__:___func__:(typ11)
+SX:C:S:L:main:main:c:0:(typ3)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:7:1000
+SX:A:X:_startup:8:1003
+SX:A:X:_startup:9:1006
+SX:A:X:_startup:10:1007
+SX:A:F:_startup:__start:1000:6
+SX:A:E:_startup:__start:1009:11
+SX:C:F:main:_main:0000100B:3
+SX:C:X:main:3:1:100B
+SX:C:X:main:5:5:100D
+SX:C:X:main:6:5:1012
+SX:C:X:main:7:2:1018
+SX:C:X:main:8:1:101B
+SX:C:Z:main:8:1:101B
+SX:C:E:main:_main:0000101E:8

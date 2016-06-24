@@ -1,0 +1,447 @@
+S0030000FC
+S1131000CF2FFF161011A720FD10EF3D1611470B2F
+S1231010A71B9F16112C1611991610646B8087C107222C59CE105305E71611A2202116118F
+S1231030B0201C1611BF20171611CD20121611DC200D1612E920081612FA20031613291855
+S123105020FFC61029102E10331038103D10421047104CA71B9D6980F609C06B828747562B
+S12310704756475647564756475647566B80E780270220E4F609C06B818747564756475626
+S123109047564756475647566B80C101270220E4E6821B833DA71B9F6980C6017B09C2C68E
+S12310B0D07B09C37909C2E680C1062C10E6F300037B09C36280ED83026D8320EA7909C3A2
+S12310D07909C31B813DA71B96C6056B89CC00016C871A81CD138618027131180271311876
+S12310F0027131E7892D29EC8CEE871810B754CE000A18106B80E689B7141A811AE6E6802C
+S12311106B00CC000AED87136C8763891820FFD31A81341610A61B821B8A3DA7A787C77CD8
+S123113013A2CC100C7C3FF0C6807B0038C6107B003B1610093DA7A7F60037CA807B0037EB
+S1231150FD13A2027D13A23DA7A7CD000AFC13A2133DA73DA71B9AEE8ACC00018E000027F8
+S123117007044404095920F46C84EC88E485A4846C82EE8AEC828E0000270804440509476F
+S12311905620F36C801B863DA7A77904007913A43DA7A7F613A4CA047B13A47B04003DA772
+S12311B0A7F613A487C4FB7B13A47B04003DA7A7F613A4CA087B13A47B04003DA7A7F61381
+S12311D0A487C4F77B13A47B04003DA7A7CC00013BF60401873B1611651B848C000018271E
+S12311F0002AF613A4CA017B13A4CA027B13A47B0400CC01F43B1611631B82F613A487C46F
+S1231210FE7B13A47B0400CC0001200BCC00023B16129A1B8287C73DA71B9C87C76C82EC9A
+S123123082AC862C15ED82026D821611DC6C808C0000260487C7200520E5CC00011B843D7F
+S1231250A71B9ECC00146C80EC808C0000182F002ACC00023BF60401873B1611651B848C68
+S123127000002705CC0001201DCC00FA3B1611631B82ED80036D801820FFCDCC00023B167C
+S1231290129A1B8287C71B823DA7EC828C0000260418200042F613A4CA107B13A4CA107B76
+S12312B013A47B0400CC03E83B1611631B82F613A487C4EF7B13A47B0400ED82036D82ECE6
+S12312D0828C000026041820FFC7CC01F43B1611631B821820FFBE3DA71B9E1611BF161201
+S12312F0516C801611CD1B823DA71B9E87C73BF60401873B1611651B848C00002705CC007A
+S12313100120121611DC6C808C0000260487C720041820FFD71B823DA71BF1E91A82CD136F
+S12313308CCC001549180271310434F9180A40001A826E801612FA8C000026071611B01840
+S123135020002E1611A2E6F30000C1632720E6F30000B7143B1612291B828C000026051684
+S119137011B0200D1612E9ED80026D8020D81611B01BF0173D4694
+S11F1386000000000000000101010101010102010502020202040403080263A216
+S10713A20000000043
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/main.c
+SX:C:S:F:main:main:_main:(typ0)
+SX:C:S:F:main:__func__:___func__:(typ11)
+SX:C:S:L:main:main:k:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:keyboardML15$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/keyboardML15.c
+SX:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SX:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SX:C:S:L:keyboardML15:get_key:c:2:(typ4)
+SX:C:S:L:keyboardML15:get_key:d:1:(typ4)
+SX:C:S:L:keyboardML15:get_key:e:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:displayML15$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c
+SX:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SX:C:S:L:displayML15:display_digits:c:3:(typ16-displayML15)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_digits:counter:0:(typ3)
+SX:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SX:C:S:L:displayML15:display_dec:i:12:(typ12)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_dec:counter:9:(typ3)
+SX:C:S:L:displayML15:display_dec:div:7:(typ12)
+SX:C:S:L:displayML15:display_dec:c:1:(typ18-displayML15)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:displayML15: typ16-displayML15 a *(typ4)
+SX:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:clock$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/clock.c
+SX:C:S:F:clock:hold:_hold:(typ0)(typ11)
+SX:C:S:L:clock:hold:delay:2:(typ11)
+SX:C:S:F:clock:__func__:___func__:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:drill$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/drill.c
+SX:C:S:F:drill:getBit:_getBit:(typ11)(typ11)(typ11)
+SX:C:S:L:drill:getBit:n:8:(typ11)
+SX:C:S:L:drill:getBit:k:10:(typ11)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:getBit:mask:4:(typ11)
+SX:C:S:L:drill:getBit:masked_n:2:(typ11)
+SX:C:S:L:drill:getBit:thebit:0:(typ11)
+SX:C:S:F:drill:nStep:_nStep:(typ11)(typ11)
+SX:C:S:L:drill:nStep:steps:6:(typ11)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:nStep:counter:2:(typ11)
+SX:C:S:L:drill:nStep:ans:0:(typ11)
+SX:C:S:F:drill:drillDownTest:_drillDownTest:(typ11)(typ0)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:drillDownTest:retries:0:(typ11)
+SX:C:S:F:drill:alarm:_alarm:(typ0)(typ11)
+SX:C:S:L:drill:alarm:signals:2:(typ11)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:F:drill:drillHole:_drillHole:(typ0)(typ0)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:drillHole:b:0:(typ11)
+SX:C:S:F:drill:refPos:_refPos:(typ11)(typ0)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:refPos:x:0:(typ11)
+SX:C:S:F:drill:doAuto:_doAuto:(typ0)(typ0)
+SX:C:S:F:drill:__func__:___func__:(typ11)
+SX:C:S:L:drill:doAuto:spaces:2:(typ28-drill)
+SX:C:S:L:drill:doAuto:p:0:(typ29-drill)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:drill: typ28-drill A (21)(typ3)
+SX:C:T:drill: typ29-drill a *(typ3)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:10:1000
+SX:A:X:_startup:11:1003
+SX:A:X:_startup:12:1006
+SX:A:X:_startup:13:1007
+SX:A:X:_startup:15:1009
+SX:A:X:_startup:16:100B
+SX:A:X:_startup:19:100C
+SX:A:X:_startup:20:100F
+SX:A:F:_startup:__start:1000:9
+SX:A:E:_startup:__start:1010:22
+SX:C:F:main:_main:00001011:7
+SX:C:X:main:7:1:1011
+SX:C:X:main:9:5:1013
+SX:C:X:main:10:5:1016
+SX:C:X:main:11:0:1019
+SX:C:X:main:12:4:101E
+SX:C:X:main:13:6:1029
+SX:C:X:main:14:9:1029
+SX:C:X:main:15:2:102C
+SX:C:X:main:16:6:102E
+SX:C:X:main:17:9:102E
+SX:C:X:main:18:2:1031
+SX:C:X:main:19:6:1033
+SX:C:X:main:20:9:1033
+SX:C:X:main:21:2:1036
+SX:C:X:main:22:6:1038
+SX:C:X:main:23:9:1038
+SX:C:X:main:24:2:103B
+SX:C:X:main:25:6:103D
+SX:C:X:main:26:9:103D
+SX:C:X:main:27:2:1040
+SX:C:X:main:28:6:1042
+SX:C:X:main:29:9:1042
+SX:C:X:main:30:2:1045
+SX:C:X:main:31:6:1047
+SX:C:X:main:32:9:1047
+SX:C:X:main:33:2:104A
+SX:C:X:main:34:6:104C
+SX:C:X:main:35:9:104C
+SX:C:X:main:36:2:104F
+SX:C:X:main:38:5:104F
+SX:C:X:main:39:1:1053
+SX:C:Z:main:39:1:1053
+SX:C:E:main:_main:00001063:39
+SX:C:F:keyboardML15:_get_key:00001064:3
+SX:C:X:keyboardML15:3:1:1064
+SX:C:X:keyboardML15:4:24:1066
+SX:C:X:keyboardML15:5:2:1068
+SX:C:X:keyboardML15:6:5:1068
+SX:C:X:keyboardML15:7:5:106D
+SX:C:X:keyboardML15:8:14:107E
+SX:C:X:keyboardML15:9:7:1082
+SX:C:X:keyboardML15:12:2:1084
+SX:C:X:keyboardML15:13:5:1084
+SX:C:X:keyboardML15:14:5:1089
+SX:C:X:keyboardML15:15:14:109A
+SX:C:X:keyboardML15:16:7:109E
+SX:C:X:keyboardML15:19:2:10A0
+SX:C:X:keyboardML15:20:1:10A2
+SX:C:Z:keyboardML15:20:1:10A2
+SX:C:E:keyboardML15:_get_key:000010A5:20
+SX:C:F:displayML15:_display_digits:000010A6:4
+SX:C:X:displayML15:4:1:10A6
+SX:C:X:displayML15:5:16:10A8
+SX:C:X:displayML15:6:2:10AA
+SX:C:X:displayML15:7:2:10AF
+SX:C:X:displayML15:8:2:10B4
+SX:C:X:displayML15:9:2:10B7
+SX:C:X:displayML15:10:2:10BD
+SX:C:X:displayML15:11:5:10C4
+SX:C:X:displayML15:12:5:10C6
+SX:C:X:displayML15:14:2:10CD
+SX:C:X:displayML15:15:2:10D0
+SX:C:X:displayML15:16:1:10D3
+SX:C:Z:displayML15:16:1:10D3
+SX:C:E:displayML15:_display_digits:000010D6:16
+SX:C:F:displayML15:_display_dec:000010D7:18
+SX:C:X:displayML15:18:1:10D7
+SX:C:X:displayML15:19:16:10D9
+SX:C:X:displayML15:20:20:10DD
+SX:C:X:displayML15:21:21:10E2
+SX:C:X:displayML15:22:2:10F3
+SX:C:X:displayML15:23:5:10F7
+SX:C:X:displayML15:24:5:1112
+SX:C:X:displayML15:25:5:111A
+SX:C:X:displayML15:27:3:1120
+SX:C:X:displayML15:28:1:1128
+SX:C:Z:displayML15:28:1:1128
+SX:C:E:displayML15:_display_dec:0000112B:28
+SX:C:F:clock:_init_clock:0000112C:9
+SX:C:X:clock:9:1:112C
+SX:C:X:clock:10:3:112D
+SX:C:X:clock:11:2:1132
+SX:C:X:clock:12:2:1138
+SX:C:X:clock:13:2:113D
+SX:C:X:clock:14:3:1142
+SX:C:X:clock:15:1:1145
+SX:C:Z:clock:15:1:1145
+SX:C:E:clock:_init_clock:00001146:15
+SX:C:F:clock:_clock_inter:00001147:17
+SX:C:X:clock:17:1:1147
+SX:C:X:clock:18:1:1148
+SX:C:X:clock:19:3:1150
+SX:C:X:clock:20:1:1157
+SX:C:Z:clock:20:1:1157
+SX:C:E:clock:_clock_inter:00001158:20
+SX:C:F:clock:_get_time:00001159:22
+SX:C:X:clock:22:1:1159
+SX:C:X:clock:23:2:115A
+SX:C:X:clock:24:1:1161
+SX:C:Z:clock:24:1:1161
+SX:C:E:clock:_get_time:00001162:24
+SX:C:F:clock:_hold:00001163:26
+SX:C:X:clock:26:1:1163
+SX:C:X:clock:30:1:1163
+SX:C:Z:clock:30:1:1163
+SX:C:E:clock:_hold:00001164:30
+SX:C:F:drill:_getBit:00001165:7
+SX:C:X:drill:7:1:1165
+SX:C:X:drill:9:5:1167
+SX:C:X:drill:10:5:117A
+SX:C:X:drill:11:5:1182
+SX:C:X:drill:12:4:1195
+SX:C:X:drill:13:1:1195
+SX:C:Z:drill:13:1:1195
+SX:C:E:drill:_getBit:00001198:13
+SX:C:F:drill:_init_drill:00001199:15
+SX:C:X:drill:15:1:1199
+SX:C:X:drill:16:2:119A
+SX:C:X:drill:17:3:119D
+SX:C:X:drill:18:1:11A0
+SX:C:Z:drill:18:1:11A0
+SX:C:E:drill:_init_drill:000011A1:18
+SX:C:F:drill:_motorStart:000011A2:20
+SX:C:X:drill:20:1:11A2
+SX:C:X:drill:21:1:11A3
+SX:C:X:drill:22:2:11AB
+SX:C:X:drill:23:1:11AE
+SX:C:Z:drill:23:1:11AE
+SX:C:E:drill:_motorStart:000011AF:23
+SX:C:F:drill:_motorStop:000011B0:25
+SX:C:X:drill:25:1:11B0
+SX:C:X:drill:26:1:11B1
+SX:C:X:drill:27:2:11BA
+SX:C:X:drill:28:1:11BD
+SX:C:Z:drill:28:1:11BD
+SX:C:E:drill:_motorStop:000011BE:28
+SX:C:F:drill:_drillDown:000011BF:30
+SX:C:X:drill:30:1:11BF
+SX:C:X:drill:31:1:11C0
+SX:C:X:drill:32:2:11C8
+SX:C:X:drill:33:1:11CB
+SX:C:Z:drill:33:1:11CB
+SX:C:E:drill:_drillDown:000011CC:33
+SX:C:F:drill:_drillUp:000011CD:35
+SX:C:X:drill:35:1:11CD
+SX:C:X:drill:36:1:11CE
+SX:C:X:drill:37:2:11D7
+SX:C:X:drill:38:1:11DA
+SX:C:Z:drill:38:1:11DA
+SX:C:E:drill:_drillUp:000011DB:38
+SX:C:F:drill:_step:000011DC:40
+SX:C:X:drill:40:1:11DC
+SX:C:X:drill:41:34:11DD
+SX:C:X:drill:42:1:11F2
+SX:C:X:drill:43:1:11FA
+SX:C:X:drill:44:2:11FF
+SX:C:X:drill:45:5:1202
+SX:C:X:drill:46:1:120B
+SX:C:X:drill:47:2:1214
+SX:C:X:drill:48:4:1217
+SX:C:X:drill:50:5:121C
+SX:C:X:drill:51:4:1225
+SX:C:X:drill:53:1:1227
+SX:C:Z:drill:53:1:1227
+SX:C:E:drill:_step:00001228:53
+SX:C:F:drill:_nStep:00001229:55
+SX:C:X:drill:55:1:1229
+SX:C:X:drill:56:15:122B
+SX:C:X:drill:58:2:122F
+SX:C:X:drill:59:5:1235
+SX:C:X:drill:60:5:123A
+SX:C:X:drill:61:16:123F
+SX:C:X:drill:62:6:1244
+SX:C:X:drill:65:2:124A
+SX:C:X:drill:66:1:124D
+SX:C:Z:drill:66:1:124D
+SX:C:E:drill:_nStep:00001250:66
+SX:C:F:drill:_drillDownTest:00001251:68
+SX:C:X:drill:68:1:1251
+SX:C:X:drill:69:15:1253
+SX:C:X:drill:70:2:1258
+SX:C:X:drill:71:36:1261
+SX:C:X:drill:72:6:1274
+SX:C:X:drill:74:5:1279
+SX:C:X:drill:75:5:1282
+SX:C:X:drill:77:3:128B
+SX:C:X:drill:78:2:1294
+SX:C:X:drill:79:1:1296
+SX:C:Z:drill:79:1:1296
+SX:C:E:drill:_drillDownTest:00001299:79
+SX:C:F:drill:_alarm:0000129A:81
+SX:C:X:drill:81:1:129A
+SX:C:X:drill:82:18:129A
+SX:C:X:drill:83:0:12A1
+SX:C:X:drill:85:0:12A5
+SX:C:X:drill:86:1:12AD
+SX:C:X:drill:87:2:12B2
+SX:C:X:drill:88:3:12B5
+SX:C:X:drill:89:1:12BE
+SX:C:X:drill:90:2:12C7
+SX:C:X:drill:91:3:12CA
+SX:C:X:drill:92:18:12CF
+SX:C:X:drill:93:5:12D6
+SX:C:X:drill:95:3:12DA
+SX:C:X:drill:96:3:12E3
+SX:C:X:drill:97:1:12E7
+SX:C:Z:drill:97:1:12E7
+SX:C:E:drill:_alarm:000012E8:97
+SX:C:F:drill:_drillHole:000012E9:99
+SX:C:X:drill:99:1:12E9
+SX:C:X:drill:101:3:12EB
+SX:C:X:drill:102:3:12EE
+SX:C:X:drill:103:3:12F3
+SX:C:X:drill:104:1:12F6
+SX:C:Z:drill:104:1:12F6
+SX:C:E:drill:_drillHole:000012F9:104
+SX:C:F:drill:_refPos:000012FA:106
+SX:C:X:drill:106:1:12FA
+SX:C:X:drill:108:0:12FC
+SX:C:X:drill:109:4:130E
+SX:C:X:drill:111:3:1313
+SX:C:X:drill:112:8:1318
+SX:C:X:drill:113:4:131D
+SX:C:X:drill:115:3:1321
+SX:C:X:drill:116:1:1325
+SX:C:Z:drill:116:1:1325
+SX:C:E:drill:_refPos:00001328:116
+SX:C:F:drill:_doAuto:00001329:118
+SX:C:X:drill:118:1:1329
+SX:C:X:drill:119:119:132C
+SX:C:X:drill:120:11:1340
+SX:C:X:drill:121:14:1344
+SX:C:X:drill:122:5:134C
+SX:C:X:drill:125:3:1353
+SX:C:X:drill:126:2:1356
+SX:C:X:drill:127:17:135E
+SX:C:X:drill:128:7:136F
+SX:C:X:drill:131:5:1374
+SX:C:X:drill:132:5:1377
+SX:C:X:drill:134:3:137E
+SX:C:X:drill:135:1:1381
+SX:C:Z:drill:135:1:1381
+SX:C:E:drill:_doAuto:00001385:135
+SX:C:S:G:drill:dSdw:_dSdw:000013A4:(typ4)
+SX:C:S:S:clock:clock:000013A2:(typ11)

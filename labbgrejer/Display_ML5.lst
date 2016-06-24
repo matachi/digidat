@@ -1,0 +1,63 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2011
+
+
+File: Display_ML5.lst
+       0000 0C02            1. ML5_SEG		EQU	$C02
+       0000 0C03            2. ML5_POS		EQU	$C03
+       0000 0C00            3. ML5_ROW		EQU	$C00
+       0000 0C01            4. ML5_COL		EQU	$C01
+                            5. 
+       0000 00C8            6. DelayValue	equ	200
+       0000 00C8            7. DelayValue2	equ	200
+                            8. 
+                            9. *	Skriv ut aktuell tid och
+                           10. *	fördröj c:a 0,1 s
+002000                     11. 		ORG	$2000
+002000                     12. Display:
+002000 C6 C8               13. 	LDAB	#DelayValue2
+002002                     14. Display1:
+002002 37                  15. 	PSHB
+002003 07 06               16. 	BSR	disp_all
+002005 33                  17. 	PULB
+002006 C0 01               18. 	SUBB	#1
+002008 26 F8               19. 	BNE	Display1
+00200A 3D                  20. 	RTS
+                           21. 
+                           22. 
+                           23. * Kod för att visa samtliga siffror EN gång
+00200B                     24. disp_all:
+00200B 86 DF               25. 	LDAA	#%11011111	; Segment längst till vänster
+00200D CD 20 30            26. 	LDY	#seg_tab	; Pekare till segmentskoder
+002010 CE 20 40            27. 	LDX	#Clock		; Pekare till Klockvariabeln
+                           28. 
+002013                     29. disp_all_1:
+002013                     30. 	LDAB	1,X+		; läs byte från klockvariabel, peka på nästa
+002015                     31. 	LDAB	B,Y		; läs motsvarande segmentsmönster till B
+002017 7B 0C 02            32. 	STAB	ML5_SEG		; skriv segmentmönster till port
+00201A 7A 0C 03            33. 	STAA	ML5_POS		; tänd denna display
+00201D 07 09               34. 	BSR	del_3ms		; vänta ett ögonblick
+00201F 47                  35. 	ASRA			; nästa display...
+002020 25 F1               36. 	BCS	disp_all_1	; tills alla displayer visats
+                           37. 
+002022 18 0B FF 0C 03      38. 	MOVB	#$FF,ML5_POS	; släck alla displayer
+002027 3D                  39. 	RTS
+                           40. 
+002028                     41. del_3ms:
+002028 37                  42. 	PSHB	
+002029 C6 C8               43. 	LDAB	#DelayValue	
+00202B                     44. dummy:
+00202B 04 31 FD            45. 	DBNE	B,dummy	
+                           46. 
+00202E 33                  47. 	PULB
+00202F 3D                  48. 	RTS
+                           49. 
+002030 77 24 5D 6D 2E 6B   50. seg_tab	FCB	$77,$24,$5d,$6d,$2e,$6b,$7b,$25
+       7B 25            
+002038 7F 6F 3F 7A 58 7C   51. 	FCB	$7f,$6f,$3f,$7a,$58,$7c,$5b,$1b
+       5B 1B            
+                           52. 
+                           53. * Variabler
+002040 01 02 03 04 05 06   54. Clock	FCB	1,2,3,4,5,6,7,8
+       07 08            
+002048 01                  55. Running	FCB	1

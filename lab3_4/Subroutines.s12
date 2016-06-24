@@ -1,0 +1,199 @@
+		USE	Labdefs.s12
+	
+DCShadow	RMB	1
+tmp		RMB	1
+Pattern		FCB	0,1,1,1,1,1,1,1,2,1,5,2,2,2,2,4,4,3,8,2,$FF
+
+Outzero:	PSHA
+		PSHB
+		CMPB	#7
+		BHI	Outzero_return
+		LDAA	#1
+Outzero_LSLA:	CMPB	#0		; denna loopen flyttar biten i A till rätt plats
+		BEQ	Outzero_LSLA_k
+		LSLA
+		DECB
+		JMP	Outzero_LSLA
+Outzero_LSLA_k:	COMA
+		STAA	tmp
+		LDAB	DCShadow
+		ANDB	tmp
+		STAB	DCShadow
+		STAB	DrillControl
+		PULB
+		PULA
+Outzero_return:	RTS
+		
+Outone:		PSHA
+		PSHB
+		CMPB	#7
+		BHI	Outone_return
+		LDAA	#1
+Outone_LSLA:	CMPB	#0		; denna loopen flyttar biten i A till rätt plats
+		BEQ	Outone_LSLA_k
+		LSLA
+		DECB
+		JMP	Outone_LSLA
+Outone_LSLA_k:	LDAB	DCShadow
+		STAA	tmp
+		ORAB	tmp
+		STAB	DCShadow
+		STAB	DrillControl
+		PULB
+		PULA
+Outone_return	RTS
+		
+MotorStart:	LDAB	DCShadow
+		ANDB	#$04		; Kolla om borr e igng. bit nr 2
+		CMPB	#$04
+		BEQ	MotorStartExit	; Om bit nr 2 e 1 e motorn redan igng, exita då
+		LDAB	#2
+		JSR	Outone		; starta motor
+		LDAB	#4
+		JSR	Delay
+MotorStartExit:	RTS
+
+MotorStop:	LDAB	#2		; stanna motor, bit 2
+		JMP	Outzero
+		RTS
+		
+DrillDown:	LDAB	#3
+		JSR	Outone		; lower drill
+		RTS
+		
+DrillUp:	LDAB	#3
+		JSR	Outzero		; pull up drill
+DrillUp_loop:	LDAB	DrillStatus	; loop until drill is up again
+		ANDB	#$2
+		CMPB	#$2
+		BNE	DrillUp_loop
+		RTS
+		
+Alarm:		CMPB	#0
+		BEQ	Alarm_return	; om antalet loopar är 0, returnera
+Alarm_loop:	PSHB
+		LDAB	#4		; bit 4 ska ändras för att modda larmet
+		JSR	Outone		; starta larmet
+		JSR	Delay		; vänta en stund
+		JSR	Outzero		; stoppa larmet
+		PULB
+		DECB			; minska b, vilket är antalet loopar
+		CMPB	#0
+		BEQ	Alarm_return	; om antalet loopar är 0, returnera
+		PSHB
+		LDAB	#2
+		JSR	Delay		; låt larmet vara tyst en stund
+		PULB
+		JMP	Alarm_loop	; kör larmet en gång till
+Alarm_return:	RTS
+
+Step:		LDAB	DrillStatus
+		BITB	#2
+		BEQ	Step_alarm	; om borren inte är uppe, kör alarmet
+		LDAB	#1
+		JSR	Outone		; sätt vridning till moturs
+		LDAB	#0
+		JSR	Outone		; ge stegpuls
+		LDAB	#2
+		JSR	Delay		; vänta en stund
+		LDAB	#0
+		JSR	Outzero		; ändra tillbaka stegpulsen
+		RTS
+Step_alarm:	LDAB	#2
+		JSR	Alarm		; kör larmet 2 ggr
+		LDAB	#0
+		RTS
+
+RefPos:		LDAB	DrillStatus
+		BITB	#1
+		BNE	RefPos_return	; return när den är i ref pos
+		JSR	Step
+		CMPB	#1		; kolla om step:et funka
+		BEQ	RefPos_ret_err	; om inte, return med errorkod
+		BRA	RefPos		; loopa o gör en ny step
+RefPos_ret_err:	LDAB	#0
+		RTS
+RefPos_return:	LDAB	#1
+		RTS
+		
+Nstep:		CMPB	#0
+		BEQ	Nstep_ret
+		DECB
+		PSHB
+		JSR	Step
+		CMPB	#1
+		PULB
+		BEQ	Nstep_ret_err
+		JMP	Nstep
+Nstep_ret_err:	LDAB	#0
+		RTS
+Nstep_ret:	LDAB	#1
+		RTS
+		
+DrillDownTest:	LDAB	DCShadow
+		BITB	#4
+		BEQ	DrillDwnTst_rA	; om borrmaskinen ej är igång, returnera med alarm
+		LDAA	#20		; max 20 kollar
+DrillDown_loop:	LDAB	DrillStatus
+		BITB	#4		; kolla om bit 2 är 0
+		BNE	DrillDwnTest_r	; om nere, retunera "safe"
+		PSHB
+		LDAB	#1
+		JSR	Delay		; vänta en stund
+		PULB
+		DECA			; minska antalet retries
+		CMPA	#0
+		BNE	DrillDown_loop	; kolla en gång till om borren är igenom metallen
+DrillDwnTst_rA:	LDAB	#2
+		JSR	Alarm		; returnerar med alarm
+		LDAB	#0
+		RTS			; retunera med 0 i B, alltså kom borret aldrig ner
+DrillDwnTest_r:	LDAB	#1
+		RTS
+
+DrillHole:	JSR	DrillDown
+		JSR	DrillDownTest
+		JSR	DrillUp
+		RTS
+
+DoAuto:		LDX	#Pattern
+		JSR	Auto
+		RTS
+
+Auto:		JSR	RefPos
+		CMPB	#0
+		BEQ	Auto_ret
+		JSR	MotorStart
+Auto_loop	LDAB	,X
+		INX
+		CMPB	#$FF
+		BEQ	Auto_ret
+		JSR	Nstep
+		CMPB	#0
+		BEQ	Auto_ret
+		JSR	DrillHole
+		CMPB	#0
+		BNE	Auto_loop
+Auto_ret	JSR	MotorStop
+		RTS
+		
+Delay:		PSHB
+		PSHX
+		PSHY
+repeat:		CMPB	#0
+		BEQ	Delay_return
+		LDX	#DelayConst
+NEXT:		LEAX	-1,X
+		LDY	#100
+NEXT2:		LEAY	-1,Y
+		CPY	#0
+		BNE	NEXT2
+		CPX	#0
+		BNE	NEXT
+		DECB
+		BRA	repeat
+Delay_return	PULY
+		PULX
+		PULB
+		RTS
+		

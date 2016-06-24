@@ -1,0 +1,90 @@
+mod:main:O12:main.o12
+seg:text:83
+seg:bss:0
+seg:data:0
+seg:rodata:0
+C:text	A71B9F1600001600001600006B8087C1
+C:text	07222C59CE000005E716000020211600
+C:text	00201C16000020171600002012160000
+C:text	200D1600002008160000200316000018
+C:text	20FFC6
+C:text	00000000000000000000000000000000
+RG:text:main:00000004:O:W:_init_clock:37
+RG:text:main:00000007:O:W:_init_drill:40
+RG:text:main:0000000A:O:W:_get_key:44
+RG:text:main:0000001A:O:W:_motorStart:59
+RG:text:main:0000001F:O:W:_motorStop:68
+RG:text:main:00000024:O:W:_drillDown:77
+RG:text:main:00000029:O:W:_drillUp:86
+RG:text:main:0000002E:O:W:_step:95
+RG:text:main:00000033:O:W:_drillHole:104
+RG:text:main:00000038:O:W:_refPos:113
+RG:text:main:0000003D:O:W:_doAuto:122
+RL:text:main:00000015:O:W:00000043:text:52
+RL:text:main:00000043:O:W:00000019:text:137
+RL:text:main:00000045:O:W:0000001E:text:137
+RL:text:main:00000047:O:W:00000023:text:137
+RL:text:main:00000049:O:W:00000028:text:137
+RL:text:main:0000004B:O:W:0000002D:text:137
+RL:text:main:0000004D:O:W:00000032:text:137
+RL:text:main:0000004F:O:W:00000037:text:137
+RL:text:main:00000051:O:W:0000003C:text:137
+G:text:main:00000001:_main
+SY:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/main.c
+SY:C:F:main:text:_main:00000001:7
+SY:C:X:main:7:1:text:1
+SY:C:S:F:main:main:_main:(typ0)
+SY:C:S:F:main:__func__:___func__:(typ11)
+SY:C:S:L:main:main:k:0:(typ4)
+SY:C:X:main:9:5:text:3
+SY:C:X:main:10:5:text:6
+SY:C:X:main:11:0:text:9
+SY:C:X:main:12:4:text:E
+SY:C:X:main:13:6:text:19
+SY:C:X:main:14:9:text:19
+SY:C:X:main:15:2:text:1C
+SY:C:X:main:16:6:text:1E
+SY:C:X:main:17:9:text:1E
+SY:C:X:main:18:2:text:21
+SY:C:X:main:19:6:text:23
+SY:C:X:main:20:9:text:23
+SY:C:X:main:21:2:text:26
+SY:C:X:main:22:6:text:28
+SY:C:X:main:23:9:text:28
+SY:C:X:main:24:2:text:2B
+SY:C:X:main:25:6:text:2D
+SY:C:X:main:26:9:text:2D
+SY:C:X:main:27:2:text:30
+SY:C:X:main:28:6:text:32
+SY:C:X:main:29:9:text:32
+SY:C:X:main:30:2:text:35
+SY:C:X:main:31:6:text:37
+SY:C:X:main:32:9:text:37
+SY:C:X:main:33:2:text:3A
+SY:C:X:main:34:6:text:3C
+SY:C:X:main:35:9:text:3C
+SY:C:X:main:36:2:text:3F
+SY:C:X:main:38:5:text:3F
+SY:C:X:main:39:1:text:43
+SY:C:Z:main:39:1:text:43
+SY:C:E:main:text:_main:00000053:39
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

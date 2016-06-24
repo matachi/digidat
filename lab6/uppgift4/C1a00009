@@ -1,0 +1,69 @@
+
+#line 1 "Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c"
+
+#line 1 "Z:/home/matachi/programming/mc12/lab6/uppgift4/src/port.h"
+typedef unsigned char port8;
+typedef unsigned short port16;
+typedef unsigned long port32;
+typedef port8 *port8ptr;
+
+typedef void (*vec) (void);
+typedef vec *vecptr;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 2 "Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c"
+
+#line 1 "Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.h"
+void display_digits(unsigned char *c);
+void display_dec(unsigned int i);
+
+#line 3 "Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c"
+
+void display_digits(unsigned char *c) {
+  char counter = 0;
+ *((port8ptr)0x9C2) = 1;
+ *((port8ptr)0x9C3) = 0xD0;
+ *((port8ptr)0x9C2) = 0;
+  while (counter < 6) {
+ *((port8ptr)0x9C3) = *c;
+    counter += 1;
+    ++c;
+  }
+ *((port8ptr)0x9C3) = 0;
+ *((port8ptr)0x9C3) = 0;
+}
+
+void display_dec(unsigned int i) {
+  char counter = 5;
+  unsigned int div = 1;
+  unsigned char c[6] = {0,0,0,0,0,0};
+  while (counter >= 0) {
+    c[counter] = (i / div) % 10;
+    div *= 10;
+    --counter;
+  }
+  display_digits(c);
+}

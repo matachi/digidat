@@ -1,0 +1,59 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: SubroutinesTestUpg83.lst
+                            1. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+       0000 0600            2. DipSwitch	EQU	$0600
+       0000 0700            3. HexDisplay	EQU	$0700
+       0000 0400            4. DrillControl	EQU	$0400
+       0000 0401            5. DrillStatus	EQU	$0401
+                            6. ;#ifdef RUNFAaST
+                            7. ;DelayConst	EQU	#FF
+                            8. ;#else
+                            9. ;DelayConst	EQU	#FF
+                           10. ;#endif000000                     11. 		
+---- File: "Z:\home\matachi\programming\mc12\SubroutinesTestUpg83.s12"
+001000                     12. 		ORG	$1000
+001000 C6 00               13. start:		LDAB	#$00
+001002 7B 10 14            14. 		STAB	DCShadow
+001005                     15. 		
+001005 F6 06 00            16. Loop:		LDAB	DipSwitch
+001008 16 10 27            17. 		JSR	Outone
+00100B B6 10 14            18. 		LDAA	DCShadow
+00100E 7A 04 00            19. 		STAA	DrillControl
+001011 06 10 00            20. 		JMP	start
+001014                     21. 		
+                           22. 
+                           23. 		USE	Subroutines.s12---- File: "Subroutines.s12"
+                           24. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+       0000 0600           25. DipSwitch	EQU	$0600
+       0000 0700           26. HexDisplay	EQU	$0700
+       0000 0400           27. DrillControl	EQU	$0400
+       0000 0401           28. DrillStatus	EQU	$0401
+                           29. ;#ifdef RUNFAaST
+                           30. ;DelayConst	EQU	#FF
+                           31. ;#else
+                           32. ;DelayConst	EQU	#FF
+                           33. ;#endif                           34. 
+---- File: "Subroutines.s12"
+001014 00                  35. DCShadow	RMB	1
+001015 00                  36. tmp		RMB	1
+                           37. 
+001016 B6 10 14            38. Outzero:	LDAA	DCShadow
+001019 7B 10 15            39. 		STAB	tmp
+00101C 51                  40. 		COMB
+00101D B4 10 15            41. 		ANDA	tmp
+001020 7A 10 14            42. 		STAA	DCShadow
+001023 7A 04 00            43. 		STAA	DrillControl
+001026 3D                  44. 		RTS
+001027                     45. 		
+001027 B6 10 14            46. Outone:		LDAA	DCShadow
+00102A 7B 10 15            47. 		STAB	tmp
+00102D BA 10 15            48. 		ORAA	tmp
+001030 7A 10 14            49. 		STAA	DCShadow
+001033 7A 04 00            50. 		STAA	DrillControl
+001036 3D                  51. 		RTS
+001037                     52. 		

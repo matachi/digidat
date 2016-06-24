@@ -1,0 +1,327 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Main.lst
+001000                      1. 		ORG	$1000
+---- File: "Z:\home\matachi\programming\mc12\upg98\Main.asm"
+                            2. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+                            3. #define RUNFAST
+                            4. #define SIMULATOR
+                            5. ;DipSwitch	EQU	$0600
+       0000 0700            6. HexDisplay	EQU	$0700
+       0000 0400            7. DrillControl	EQU	$0400
+                            8. #ifdef SIMULATOR
+       0000 0401            9. DrillStatus	EQU	$0401
+                           12. #endif
+       0000 0500           13. OutPort		EQU	$0500
+       0000 09C0           14. InPort		EQU	$9C0
+                           15. ;#ifdef		FAST
+                           16. ;DelayConst	FCB	$FF
+                           17. ;#else
+                           18. ;#endif
+                           19. 
+                           20. #ifdef SIMULATOR
+                           21. #ifdef RUNFAST
+       0000 0004           22. DelayConst	EQU	$4		; 450
+                           25. #endif
+                           28. #endif
+                           29. 
+                           30. 
+                           31. ;#ifndef 	DELCONST
+                           32. ;DelayConst	EQU	$02	;FDB
+                           33. ;#define 	DELCONST
+                           34. ;#endif
+                           35. 
+---- File: "Z:\home\matachi\programming\mc12\upg98\Main.asm"
+                           36. ; MAIN +++++++++++++++++++++++++++++++++		
+001000                     37. main:
+001000 18 0B 00 04 00      38. 		MOVB	#$00,DrillControl
+001005 18 0B 00 10 66      39. 		MOVB	#$00,DCShadow
+                           40. 
+00100A                     41. main_loop:
+00100A 16 10 50            42. 		JSR	CheckKbdML15
+00100D A7                  43. 		NOP
+00100E 16 10 13            44. 		JSR	Command
+001011 20 F7               45. 		BRA	main_loop
+                           46. 
+                           47. ; COMMAND ++++++++++++++++++++++++++++++
+001013                     48. Command:	
+001013 C1 07               49. 		CMPB	#7
+001015 22 08               50. 		BHI	CommandExit
+001017 CE 10 20            51. 		LDX	#JUMPTAB
+00101A 58                  52. 		ASLB
+00101B                     53. 		LDX	B,X
+00101D 15 00               54. 		JSR	,X
+00101F 3D                  55. CommandExit:	RTS
+                           56. 
+001020 10 30 10 34 10 38   57. JUMPTAB		FDB	SUB0,SUB1,SUB2,SUB3,SUB4,SUB5,SUB6,SUB7
+       10 3C 10 40 10 44
+       10 48 10 4C      
+                           58. 
+001030 16 10 C4            59. SUB0:		JSR	MotorStart
+001033 3D                  60. 		RTS
+001034 16 10 D8            61. SUB1:		JSR	MotorStop
+001037 3D                  62. 		RTS
+001038 16 10 DE            63. SUB2:		JSR	DrillDown
+00103B 3D                  64. 		RTS
+00103C 16 10 E4            65. SUB3:		JSR	DrillUp
+00103F 3D                  66. 		RTS
+001040 16 11 14            67. SUB4:		JSR	Step
+001043 3D                  68. 		RTS
+001044 16 11 8C            69. SUB5:		JSR	DrillHole
+001047 3D                  70. 		RTS
+001048 16 11 38            71. SUB6:		JSR	RefPos
+00104B 3D                  72. 		RTS
+00104C 16 11 96            73. SUB7:		JSR	DoAuto
+00104F 3D                  74. 		RTS
+                           75. 
+                           76. ; CHECKKBDML15 ++++++++++++++++++++++++++
+                           77. ;CheckKbdML15:
+                           78. ;		LDAB	InPort
+                           79. ;		RTS
+001050 F6 09 C0            80. CheckKbdML15:	LDAB	InPort
+001053 C1 80               81. 		CMPB	#$80
+001055 25 05               82. 		BLO	TangentNere ; Om mindre än 1000 0000, då är data available, hoppa till TangentNere
+001057 C6 FF               83. TangentUppe:	LDAB	#$FF
+001059 06 10 65            84. 		JMP	return
+00105C 37                  85. TangentNere:	PSHB
+00105D F6 09 C0            86. TngentFortfNer:	LDAB	$9C0
+001060 C1 80               87. 		CMPB	#$80
+001062 25 F9               88. 		BLO	TngentFortfNer ; Tangenten är fortfarande nere, loopa tills den är uppe
+001064 33                  89. 		PULB
+001065 3D                  90. return:		RTS		
+001066                     91. 		
+001066                     92. 		
+                           93. 		USE	Subroutines.s12---- File: "Subroutines.s12"
+                           94. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+                           95. #define RUNFAST
+                           96. #define SIMULATOR
+                           97. ;DipSwitch	EQU	$0600
+       0000 0700           98. HexDisplay	EQU	$0700
+       0000 0400           99. DrillControl	EQU	$0400
+                          100. #ifdef SIMULATOR
+       0000 0401          101. DrillStatus	EQU	$0401
+                          104. #endif
+       0000 0500          105. OutPort		EQU	$0500
+       0000 09C0          106. InPort		EQU	$9C0
+                          107. ;#ifdef		FAST
+                          108. ;DelayConst	FCB	$FF
+                          109. ;#else
+                          110. ;#endif
+                          111. 
+                          112. #ifdef SIMULATOR
+                          113. #ifdef RUNFAST
+       0000 0004          114. DelayConst	EQU	$4		; 450
+                          117. #endif
+                          120. #endif
+                          121. 
+                          122. 
+                          123. ;#ifndef 	DELCONST
+                          124. ;DelayConst	EQU	$02	;FDB
+                          125. ;#define 	DELCONST
+                          126. ;#endif
+001066                    127. 	
+---- File: "Subroutines.s12"
+001066 00                 128. DCShadow	RMB	1
+001067 00                 129. tmp		RMB	1
+001068 00 01 01 01 01 01  130. Pattern		FCB	0,1,1,1,1,1,1,1,2,1,5,2,2,2,2,4,4,3,8,2,$FF
+       01 01 02 01 05 02
+       02 02 02 04 04 03
+       08 02 FF         
+                          131. 
+00107D 36                 132. Outzero:	PSHA
+00107E 37                 133. 		PSHB
+00107F C1 07              134. 		CMPB	#7
+001081 22 1D              135. 		BHI	Outzero_return
+001083 86 01              136. 		LDAA	#1
+001085 C1 00              137. Outzero_LSLA:	CMPB	#0		; denna loopen flyttar biten i A till rätt plats
+001087 27 05              138. 		BEQ	Outzero_LSLA_k
+001089 48                 139. 		LSLA
+00108A 53                 140. 		DECB
+00108B 06 10 85           141. 		JMP	Outzero_LSLA
+00108E 41                 142. Outzero_LSLA_k:	COMA
+00108F 7A 10 67           143. 		STAA	tmp
+001092 F6 10 66           144. 		LDAB	DCShadow
+001095 F4 10 67           145. 		ANDB	tmp
+001098 7B 10 66           146. 		STAB	DCShadow
+00109B 7B 04 00           147. 		STAB	DrillControl
+00109E 33                 148. 		PULB
+00109F 32                 149. 		PULA
+0010A0 3D                 150. Outzero_return:	RTS
+0010A1                    151. 		
+0010A1 36                 152. Outone:		PSHA
+0010A2 37                 153. 		PSHB
+0010A3 C1 07              154. 		CMPB	#7
+0010A5 22 1C              155. 		BHI	Outone_return
+0010A7 86 01              156. 		LDAA	#1
+0010A9 C1 00              157. Outone_LSLA:	CMPB	#0		; denna loopen flyttar biten i A till rätt plats
+0010AB 27 05              158. 		BEQ	Outone_LSLA_k
+0010AD 48                 159. 		LSLA
+0010AE 53                 160. 		DECB
+0010AF 06 10 A9           161. 		JMP	Outone_LSLA
+0010B2 F6 10 66           162. Outone_LSLA_k:	LDAB	DCShadow
+0010B5 7A 10 67           163. 		STAA	tmp
+0010B8 FA 10 67           164. 		ORAB	tmp
+0010BB 7B 10 66           165. 		STAB	DCShadow
+0010BE 7B 04 00           166. 		STAB	DrillControl
+0010C1 33                 167. 		PULB
+0010C2 32                 168. 		PULA
+0010C3 3D                 169. Outone_return	RTS
+0010C4                    170. 		
+0010C4 F6 10 66           171. MotorStart:	LDAB	DCShadow
+0010C7 C4 04              172. 		ANDB	#$04		; Kolla om borr e igng. bit nr 2
+0010C9 C1 04              173. 		CMPB	#$04
+0010CB 27 0A              174. 		BEQ	MotorStartExit	; Om bit nr 2 e 1 e motorn redan igng, exita då
+0010CD C6 02              175. 		LDAB	#2
+0010CF 16 10 A1           176. 		JSR	Outone		; starta motor
+0010D2 C6 04              177. 		LDAB	#4
+0010D4 16 11 C0           178. 		JSR	Delay
+0010D7 3D                 179. MotorStartExit:	RTS
+                          180. 
+0010D8 C6 02              181. MotorStop:	LDAB	#2		; stanna motor, bit 2
+0010DA 06 10 7D           182. 		JMP	Outzero
+0010DD 3D                 183. 		RTS
+0010DE                    184. 		
+0010DE C6 03              185. DrillDown:	LDAB	#3
+0010E0 16 10 A1           186. 		JSR	Outone		; lower drill
+0010E3 3D                 187. 		RTS
+0010E4                    188. 		
+0010E4 C6 03              189. DrillUp:	LDAB	#3
+0010E6 16 10 7D           190. 		JSR	Outzero		; pull up drill
+0010E9 F6 04 01           191. DrillUp_loop:	LDAB	DrillStatus	; loop until drill is up again
+0010EC C4 02              192. 		ANDB	#$2
+0010EE C1 02              193. 		CMPB	#$2
+0010F0 26 F7              194. 		BNE	DrillUp_loop
+0010F2 3D                 195. 		RTS
+0010F3                    196. 		
+0010F3 C1 00              197. Alarm:		CMPB	#0
+0010F5 27 1C              198. 		BEQ	Alarm_return	; om antalet loopar är 0, returnera
+0010F7 37                 199. Alarm_loop:	PSHB
+0010F8 C6 04              200. 		LDAB	#4		; bit 4 ska ändras för att modda larmet
+0010FA 16 10 A1           201. 		JSR	Outone		; starta larmet
+0010FD 16 11 C0           202. 		JSR	Delay		; vänta en stund
+001100 16 10 7D           203. 		JSR	Outzero		; stoppa larmet
+001103 33                 204. 		PULB
+001104 53                 205. 		DECB			; minska b, vilket är antalet loopar
+001105 C1 00              206. 		CMPB	#0
+001107 27 0A              207. 		BEQ	Alarm_return	; om antalet loopar är 0, returnera
+001109 37                 208. 		PSHB
+00110A C6 02              209. 		LDAB	#2
+00110C 16 11 C0           210. 		JSR	Delay		; låt larmet vara tyst en stund
+00110F 33                 211. 		PULB
+001110 06 10 F7           212. 		JMP	Alarm_loop	; kör larmet en gång till
+001113 3D                 213. Alarm_return:	RTS
+                          214. 
+001114 F6 04 01           215. Step:		LDAB	DrillStatus
+001117 C5 02              216. 		BITB	#2
+001119 27 15              217. 		BEQ	Step_alarm	; om borren inte är uppe, kör alarmet
+00111B C6 01              218. 		LDAB	#1
+00111D 16 10 A1           219. 		JSR	Outone		; sätt vridning till moturs
+001120 C6 00              220. 		LDAB	#0
+001122 16 10 A1           221. 		JSR	Outone		; ge stegpuls
+001125 C6 02              222. 		LDAB	#2
+001127 16 11 C0           223. 		JSR	Delay		; vänta en stund
+00112A C6 00              224. 		LDAB	#0
+00112C 16 10 7D           225. 		JSR	Outzero		; ändra tillbaka stegpulsen
+00112F 3D                 226. 		RTS
+001130 C6 02              227. Step_alarm:	LDAB	#2
+001132 16 10 F3           228. 		JSR	Alarm		; kör larmet 2 ggr
+001135 C6 00              229. 		LDAB	#0
+001137 3D                 230. 		RTS
+                          231. 
+001138 F6 04 01           232. RefPos:		LDAB	DrillStatus
+00113B C5 01              233. 		BITB	#1
+00113D 26 0C              234. 		BNE	RefPos_return	; return när den är i ref pos
+00113F 16 11 14           235. 		JSR	Step
+001142 C1 01              236. 		CMPB	#1		; kolla om step:et funka
+001144 27 02              237. 		BEQ	RefPos_ret_err	; om inte, return med errorkod
+001146 20 F0              238. 		BRA	RefPos		; loopa o gör en ny step
+001148 C6 00              239. RefPos_ret_err:	LDAB	#0
+00114A 3D                 240. 		RTS
+00114B C6 01              241. RefPos_return:	LDAB	#1
+00114D 3D                 242. 		RTS
+00114E                    243. 		
+00114E C1 00              244. Nstep:		CMPB	#0
+001150 27 10              245. 		BEQ	Nstep_ret
+001152 53                 246. 		DECB
+001153 37                 247. 		PSHB
+001154 16 11 14           248. 		JSR	Step
+001157 C1 01              249. 		CMPB	#1
+001159 33                 250. 		PULB
+00115A 27 03              251. 		BEQ	Nstep_ret_err
+00115C 06 11 4E           252. 		JMP	Nstep
+00115F C6 00              253. Nstep_ret_err:	LDAB	#0
+001161 3D                 254. 		RTS
+001162 C6 01              255. Nstep_ret:	LDAB	#1
+001164 3D                 256. 		RTS
+001165                    257. 		
+001165 F6 10 66           258. DrillDownTest:	LDAB	DCShadow
+001168 C5 04              259. 		BITB	#4
+00116A 27 15              260. 		BEQ	DrillDwnTst_rA	; om borrmaskinen ej är igång, returnera med alarm
+00116C 86 14              261. 		LDAA	#20		; max 20 kollar
+00116E F6 04 01           262. DrillDown_loop:	LDAB	DrillStatus
+001171 C5 04              263. 		BITB	#4		; kolla om bit 2 är 0
+001173 26 14              264. 		BNE	DrillDwnTest_r	; om nere, retunera "safe"
+001175 37                 265. 		PSHB
+001176 C6 01              266. 		LDAB	#1
+001178 16 11 C0           267. 		JSR	Delay		; vänta en stund
+00117B 33                 268. 		PULB
+00117C 43                 269. 		DECA			; minska antalet retries
+00117D 81 00              270. 		CMPA	#0
+00117F 26 ED              271. 		BNE	DrillDown_loop	; kolla en gång till om borren är igenom metallen
+001181 C6 02              272. DrillDwnTst_rA:	LDAB	#2
+001183 16 10 F3           273. 		JSR	Alarm		; returnerar med alarm
+001186 C6 00              274. 		LDAB	#0
+001188 3D                 275. 		RTS			; retunera med 0 i B, alltså kom borret aldrig ner
+001189 C6 01              276. DrillDwnTest_r:	LDAB	#1
+00118B 3D                 277. 		RTS
+                          278. 
+00118C 16 10 DE           279. DrillHole:	JSR	DrillDown
+00118F 16 11 65           280. 		JSR	DrillDownTest
+001192 16 10 E4           281. 		JSR	DrillUp
+001195 3D                 282. 		RTS
+                          283. 
+001196 CE 10 68           284. DoAuto:		LDX	#Pattern
+001199 16 11 9D           285. 		JSR	Auto
+00119C 3D                 286. 		RTS
+                          287. 
+00119D 16 11 38           288. Auto:		JSR	RefPos
+0011A0 C1 00              289. 		CMPB	#0
+0011A2 27 18              290. 		BEQ	Auto_ret
+0011A4 16 10 C4           291. 		JSR	MotorStart
+0011A7                    292. Auto_loop	LDAB	,X
+0011A9 08                 293. 		INX
+0011AA C1 FF              294. 		CMPB	#$FF
+0011AC 27 0E              295. 		BEQ	Auto_ret
+0011AE 16 11 4E           296. 		JSR	Nstep
+0011B1 C1 00              297. 		CMPB	#0
+0011B3 27 07              298. 		BEQ	Auto_ret
+0011B5 16 11 8C           299. 		JSR	DrillHole
+0011B8 C1 00              300. 		CMPB	#0
+0011BA 26 EB              301. 		BNE	Auto_loop
+0011BC 16 10 D8           302. Auto_ret	JSR	MotorStop
+0011BF 3D                 303. 		RTS
+0011C0                    304. 		
+0011C0 37                 305. Delay:		PSHB
+0011C1 34                 306. 		PSHX
+0011C2 35                 307. 		PSHY
+0011C3 C1 00              308. repeat:		CMPB	#0
+0011C5 27 17              309. 		BEQ	Delay_return
+0011C7 CE 00 04           310. 		LDX	#DelayConst
+0011CA 1A 1F              311. NEXT:		LEAX	-1,X
+0011CC CD 00 64           312. 		LDY	#100
+0011CF 19 5F              313. NEXT2:		LEAY	-1,Y
+0011D1 8D 00 00           314. 		CPY	#0
+0011D4 26 F9              315. 		BNE	NEXT2
+0011D6 8E 00 00           316. 		CPX	#0
+0011D9 26 EF              317. 		BNE	NEXT
+0011DB 53                 318. 		DECB
+0011DC 20 E5              319. 		BRA	repeat
+0011DE 31                 320. Delay_return	PULY
+0011DF 30                 321. 		PULX
+0011E0 33                 322. 		PULB
+0011E1 3D                 323. 		RTS
+0011E2                    324. 		

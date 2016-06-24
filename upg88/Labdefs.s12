@@ -1,0 +1,23 @@
+;#define RUNFAST
+;DipSwitch	EQU	$0600
+HexDisplay	EQU	$0700
+DrillControl	EQU	$0400
+DrillStatus	EQU	$0401
+OutPort		EQU	$0500
+InPort		EQU	$0600
+;#ifdef		FAST
+;DelayConst	FCB	$FF
+;#else
+;#endif
+
+#ifdef RUNFAST
+DelayConst EQU $450
+#else
+DelayConst EQU $3
+#endif
+
+
+;#ifndef 	DELCONST
+;DelayConst	EQU	$02	;FDB
+;#define 	DELCONST
+;#endif

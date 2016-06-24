@@ -1,0 +1,33 @@
+		USE	Labdefs.s12
+Port1:		EQU	$0400
+Port2:		EQU	$0401
+
+		ORG	$1000
+main:
+		CLR	Var1
+		CLR	Var2
+		LDX	#IrqR
+		STX	$3FF2
+		CLI
+
+main_loop:
+		INC	Var1
+		MOVB	Var1,Port1
+		MOVB	Var2,Port2
+		BRA	main_loop
+		
+IrqR:
+IrqR_Event1:	LDAB	ML19_Stat
+		BITB	#1
+		BEQ	IrqR_Event2
+		INC	Var2
+		CLR	ML19_AckIrq_1
+IrqR_Event2:	BITB	#2
+		BEQ	IrqR_Return
+		CLR	Var2
+		CLR	ML19_AckIrq_2
+		JMP	IrqR_Event1
+IrqR_Return:	RTI
+		
+Var1:		RMB	1
+Var2:		RMB	1

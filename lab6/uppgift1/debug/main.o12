@@ -1,0 +1,40 @@
+mod:main:O12:main.o12
+seg:text:20
+seg:bss:0
+seg:data:0
+seg:rodata:0
+C:text	A71B9FF606006B80B71447566B807B04
+C:text	001B813D
+G:text:main:00000001:_main
+SY:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift1/src/main.c
+SY:C:F:main:text:_main:00000001:3
+SY:C:X:main:3:1:text:1
+SY:C:S:F:main:main:_main:(typ0)
+SY:C:S:F:main:__func__:___func__:(typ11)
+SY:C:S:L:main:main:c:0:(typ3)
+SY:C:X:main:5:5:text:3
+SY:C:X:main:6:5:text:8
+SY:C:X:main:7:2:text:E
+SY:C:X:main:8:1:text:11
+SY:C:Z:main:8:1:text:11
+SY:C:E:main:text:_main:00000014:8
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

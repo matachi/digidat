@@ -1,0 +1,58 @@
+		USE	Labdefs.s12
+TopOfStack1	EQU	$3000
+TopOfStack2	EQU	$2F00
+		ORG	$1000
+		NOP
+		;JMP	BORR
+		NOP
+		JSR	INIT
+		LDS	StackP1
+		LDX	#SWITCH
+		STX	$3FF2
+		CLI
+		JMP	BORR
+
+INIT:		LDD	#Istack1
+		STD	StackP1
+		LDD	#Istack2
+		STD	StackP2
+		LDAB	#0
+		STAB	ProcNR
+		RTS
+		
+SWITCH:		LDAB	ProcNR
+		CMPB	#0
+		BNE	SWITCH_ProcNR2
+		STS	StackP1
+		LDS	StackP2
+		LDAB	#1
+		STAB	ProcNR
+		RTI
+SWITCH_ProcNR2:	STS	StackP2
+		LDS	StackP1
+		LDAB	#0
+		STAB	ProcNR
+		RTI
+
+StackP1		RMB	2
+StackP2		RMB	2
+ProcNR		RMB	1
+
+		ORG	TopOfStack1-9
+Istack1:	FCB	$C0
+		FCB	0
+		FCB	0
+		FDB	0
+		FDB	0
+		FDB	BORR
+		
+		ORG	TopOfStack2-9
+Istack2:	FCB	$C0
+		FCB	0
+		FCB	0
+		FDB	0
+		FDB	0
+		FDB	Display
+		
+		USE	Borr.s12
+		USE	Display_ML5.s12

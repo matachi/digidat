@@ -1,0 +1,88 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Main.lst
+001000                      1. 		ORG	$1000
+---- File: "Z:\home\matachi\programming\mc12\Main.asm"
+                            2. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+                            3. ;#define FAST
+                            4. ;DipSwitch	EQU	$0600
+       0000 0700            5. HexDisplay	EQU	$0700
+       0000 0400            6. DrillControl	EQU	$0400
+       0000 0401            7. DrillStatus	EQU	$0401
+       0000 0500            8. OutPort		EQU	$0500
+       0000 0600            9. InPort		EQU	$0600
+001000                     10. #ifdef		FAST
+                           12. #else
+"Labdefs.s12" line 11, ERROR: Multiple definition
+001000 02                  13. DelayConst	FCB	$02
+                           14. #endif001001                     15. 		
+---- File: "Z:\home\matachi\programming\mc12\Main.asm"
+001001                     16. main:
+                           17. 
+                           18. 
+001001                     19. main_loop:
+001001 16 10 2E            20. 		JSR	CheckKbdML15
+001004 16 10 09            21. 		JSR	Command
+001007 20 F8               22. 		BRA	main_loop
+                           23. 
+                           24. ; COMMAND		
+001009                     25. Command:	
+001009 C1 07               26. 		CMPB	#7
+00100B 22 08               27. 		BHI	CommandExit
+00100D CE 10 16            28. 		LDX	#JUMPTAB
+001010 58                  29. 		ASLB
+001011                     30. 		LDX	B,X
+001013 15 00               31. 		JSR	,X
+001015 3D                  32. CommandExit:	RTS
+001016 10 1C 10 22 10 28   33. JUMPTAB		FDB	SUB0,SUB1,SUB2	;,SUB3,SUB4,SUB5,SUB6,SUB7
+00101C 18 0B 00 05 00      34. SUB0:		MOVB	#0,OutPort
+001021 3D                  35. 		RTS
+001022 18 0B 01 05 00      36. SUB1:		MOVB	#1,OutPort
+001027 3D                  37. 		RTS
+001028 18 0B 03 05 00      38. SUB2:		MOVB	#3,OutPort
+00102D 3D                  39. 		RTS
+                           40. 
+                           41. ; CHECKKBDML15
+00102E                     42. CheckKbdML15:
+00102E                     43. 		
+00102E                     44. 		
+00102E                     45. 		
+                           46. 		USE	Subroutines.s12---- File: "Subroutines.s12"
+                           47. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+                           48. ;#define FAST
+                           49. ;DipSwitch	EQU	$0600
+       0000 0700           50. HexDisplay	EQU	$0700
+       0000 0400           51. DrillControl	EQU	$0400
+       0000 0401           52. DrillStatus	EQU	$0401
+       0000 0500           53. OutPort		EQU	$0500
+       0000 0600           54. InPort		EQU	$0600
+00102E                     55. #ifdef		FAST
+                           57. #else
+"Labdefs.s12" line 11, ERROR: Multiple definition
+00102E 02                  58. DelayConst	FCB	$02
+                           59. #endif                           60. 
+---- File: "Subroutines.s12"
+00102F 00                  61. DCShadow	RMB	1
+001030 00                  62. tmp		RMB	1
+                           63. 
+001031 B6 10 2F            64. Outzero:	LDAA	DCShadow
+001034 7B 10 30            65. 		STAB	tmp
+001037 51                  66. 		COMB
+001038 B4 10 30            67. 		ANDA	tmp
+00103B 7A 10 2F            68. 		STAA	DCShadow
+00103E 7A 04 00            69. 		STAA	DrillControl
+001041 3D                  70. 		RTS
+001042                     71. 		
+001042 B6 10 2F            72. Outone:		LDAA	DCShadow
+001045 7B 10 30            73. 		STAB	tmp
+001048 BA 10 30            74. 		ORAA	tmp
+00104B 7A 10 2F            75. 		STAA	DCShadow
+00104E 7A 04 00            76. 		STAA	DrillControl
+001051 3D                  77. 		RTS
+001052                     78. 		
+
+****** Total Errors: 2

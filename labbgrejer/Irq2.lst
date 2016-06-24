@@ -1,0 +1,69 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2011
+
+
+File: Irq2.lst
+                            1. ; Irq2.s12
+---- File: "C:\Users\zapray\Documents\worthless stuff\labbgrejer\Irq2.s12"
+                            2. 	use	Labdefs.s12
+---- File: "Labdefs.s12"
+                            3. 		#DEFINE	RUNFAST
+                            4. 		#DEFINE	SIMULATOR
+                            5. ;DipSwitch	EQU	$0600
+       0000 0700            6. HexDisplay	EQU	$0700
+       0000 0400            7. DrillControl	EQU	$0400
+                            8. #ifdef SIMULATOR
+       0000 0401            9. DrillStatus	EQU	$0401
+                           12. #endif
+       0000 0500           13. OutPort		EQU	$0500
+       0000 0600           14. InPort		EQU	$0600
+                           15. ;#ifdef		FAST
+                           16. ;DelayConst	FCB	$FF
+                           17. ;#else
+                           18. ;#endif
+       0000 0DC0           19. ML19_Stat	EQU	$0DC0
+       0000 0DC2           20. ML19_AckIrq_1	EQU	$0DC2
+       0000 0DC3           21. ML19_AckIeq_2	EQU	$0DC3
+                           22. 
+                           23. 
+                           24. #ifdef SIMULATOR
+                           25. #ifdef RUNFAST
+       0000 0003           26. DelayConst	EQU	$3
+                           29. #endif
+                           32. #endif
+                           33. 
+                           34. 
+                           35. ;#ifndef 	DELCONST
+                           36. ;DelayConst	EQU	$02	;FDB
+                           37. ;#define 	DELCONST
+                           38. ;#endif
+       0000 0400           39. Port1:	EQU	$0400
+---- File: "C:\Users\zapray\Documents\worthless stuff\labbgrejer\Irq2.s12"
+       0000 0401           40. Port2:	EQU	$0401
+                           41. 
+001000                     42. 	ORG	$1000
+001000                     43. main:
+                           44. ;nollställ variabler
+001000 79 10 26            45. 	CLR	Var1
+001003 79 10 27            46. 	CLR	Var2
+                           47. ;initiera avbrottsvektor IRQ
+001006 CE 10 1F            48. 	LDX	#IrqR
+001009 7E 3F F2            49. 	STX	$3FF2
+                           50. ;Nollställ I-bit, tillåt avbrott
+00100C 10 EF               51. 	CLI
+00100E                     52. 	
+00100E                     53. main_loop:
+00100E 72 10 26            54. 	INC	Var1
+001011 18 0C 10 26 04 00   55. 	MOVB	Var1,Port1
+001017 18 0C 10 27 04 01   56. 	MOVB	Var2,Port2
+00101D 20 EF               57. 	BRA	main_loop
+00101F                     58. 	
+                           59. ;avbrottsrutin
+                           60. ;Ökar Var2 med 1 och kvittera avbrott
+00101F 72 10 27            61. IrqR:	INC	Var2
+001022 79 0D C2            62. 	CLR	ML19_AckIrq_1
+001025 0B                  63. 	RTI
+001026                     64. 	
+                           65. ; Variabler
+001026 00                  66. Var1:	RMB	1
+001027 00                  67. Var2:	RMB	1

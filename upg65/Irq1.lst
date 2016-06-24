@@ -1,0 +1,28 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Irq1.lst
+       0000 0400            1. Port1:		EQU	$0400
+       0000 0401            2. Port2:		EQU	$0401
+                            3. 
+001000                      4. 		ORG	$1000
+001000                      5. main:
+001000 79 10 23             6. 		CLR	Var1
+001003 79 10 24             7. 		CLR	Var2
+001006 CE 10 1F             8. 		LDX	#IrqR
+001009 7E 3F F2             9. 		STX	$3FF2
+00100C 10 EF               10. 		CLI
+                           11. 
+00100E                     12. main_loop:
+00100E 72 10 23            13. 		INC	Var1
+001011 18 0C 10 23 04 00   14. 		MOVB	Var1,Port1
+001017 18 0C 10 24 04 01   15. 		MOVB	Var2,Port2
+00101D 20 EF               16. 		BRA	main_loop
+00101F                     17. 		
+00101F                     18. IrqR:
+00101F 72 10 24            19. 		INC	Var2
+001022 0B                  20. 		RTI
+001023                     21. 		
+001023 00                  22. Var1:		RMB	1
+001024 00                  23. Var2:		RMB	1

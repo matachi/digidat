@@ -1,0 +1,81 @@
+mod:displayML15:O12:displayML15.o12
+seg:text:134
+seg:bss:0
+seg:data:0
+seg:rodata:6
+C:text	A71B9F6980C6017B09C2C6D07B09C379
+C:text	09C2E680C1062C10E6F300037B09C362
+C:text	80ED83026D8320EA7909C37909C31B81
+C:text	3D
+C:text	A71B96C6056B89CC00016C871A81CD00
+C:text	00180271311802713118027131E7892D
+C:text	29EC8CEE871810B754CE000A18106B80
+C:text	E689B7141A811AE6E6806B00CC000AED
+C:text	87136C8763891820FFD31A8134160000
+C:text	1B821B8A3D
+C:rodata	000000000000
+RG:text:displayML15:0000007F:O:W:_display_digits:157
+RL:text:displayML15:00000040:O:W:00000000:rodata:117
+G:text:displayML15:00000001:_display_digits
+G:text:displayML15:00000032:_display_dec
+SY:C:M:displayML15$Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c
+SY:C:F:displayML15:text:_display_digits:00000001:4
+SY:C:X:displayML15:4:1:text:1
+SY:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SY:C:S:L:displayML15:display_digits:c:3:(typ16-displayML15)
+SY:C:S:F:displayML15:__func__:___func__:(typ11)
+SY:C:S:L:displayML15:display_digits:counter:0:(typ3)
+SY:C:X:displayML15:5:16:text:3
+SY:C:X:displayML15:6:2:text:5
+SY:C:X:displayML15:7:2:text:A
+SY:C:X:displayML15:8:2:text:F
+SY:C:X:displayML15:9:2:text:12
+SY:C:X:displayML15:10:2:text:18
+SY:C:X:displayML15:11:5:text:1F
+SY:C:X:displayML15:12:5:text:21
+SY:C:X:displayML15:14:2:text:28
+SY:C:X:displayML15:15:2:text:2B
+SY:C:X:displayML15:16:1:text:2E
+SY:C:Z:displayML15:16:1:text:2E
+SY:C:E:displayML15:text:_display_digits:00000031:16
+SY:C:F:displayML15:text:_display_dec:00000032:18
+SY:C:X:displayML15:18:1:text:32
+SY:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SY:C:S:L:displayML15:display_dec:i:12:(typ12)
+SY:C:S:F:displayML15:__func__:___func__:(typ11)
+SY:C:S:L:displayML15:display_dec:counter:9:(typ3)
+SY:C:S:L:displayML15:display_dec:div:7:(typ12)
+SY:C:S:L:displayML15:display_dec:c:1:(typ18-displayML15)
+SY:C:X:displayML15:19:16:text:34
+SY:C:X:displayML15:20:20:text:38
+SY:C:X:displayML15:21:21:text:3D
+SY:C:X:displayML15:22:2:text:4E
+SY:C:X:displayML15:23:5:text:52
+SY:C:X:displayML15:24:5:text:6D
+SY:C:X:displayML15:25:5:text:75
+SY:C:X:displayML15:27:3:text:7B
+SY:C:X:displayML15:28:1:text:83
+SY:C:Z:displayML15:28:1:text:83
+SY:C:E:displayML15:text:_display_dec:00000086:28
+SY:C:T:  typ0 V (-1)
+SY:C:T:  typ1 L (4)
+SY:C:T:  typ2 l (4)
+SY:C:T:  typ3 C (1)
+SY:C:T:  typ4 c (1)
+SY:C:T:  typ5 S (2)
+SY:C:T:  typ6 s (2)
+SY:C:T:  typ7 g (4)
+SY:C:T:  typ8 G (4)
+SY:C:T:  typ9 h (4)
+SY:C:T:  typ10 R (2)
+SY:C:T:  typ11 I (2)
+SY:C:T:  typ12 i (2)
+SY:C:T:  typ13 E (2)
+SY:C:T:  typ14 F (2)
+SY:C:T:  typ15 P (2)
+SY:C:T:displayML15: typ16-displayML15 a *(typ4)
+SY:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SY:C:T: typ2 l (4)
+SY:C:T: typ4 c (1)
+SY:C:T: typ6 s (2)
+e

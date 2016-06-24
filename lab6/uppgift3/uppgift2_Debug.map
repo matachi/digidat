@@ -1,0 +1,86 @@
+QLD (Version 4.8.0)- Link/Load Summary: 'debug\uppgift2_Debug.s19'
+SCRIPT FILES FROM THE FOLLOWING PATH(S):
+  'C:/Program Files (x86)/GMV/EducDist/config/xcc12'
+
+SCRIPT READ FROM THE FOLLOWING FILE(S):
+  'default.lsc'
+
+---------------------------
+ SEARCHED LIBRARIES:
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libcd.e12'
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libed.e12'
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/librtkd.e12'
+ 'C:/Program Files (x86)/GMV/EducDist/lib/xcc12/libccd.e12'
+
+---------------------------
+ PROGRAM ENTRY:'__start'
+---------------------------
+ GROUPS AND SEGMENTS:
+
+  GROUP 'const_group',
+   SEGMENTS
+   'abs'
+
+  GROUP 'test_group', READ ONLY ,allocation to: 00001000 - 00001125, (size: 294 Bytes)
+   00001000 00001013 'init'
+   00001014 0000111D 'text'
+   0000111E 00001123 'rodata'
+   00001124 00001125 'bss'
+
+  GROUP 'interrupt_vectors', READ ONLY
+   NO SEGMENTS
+---------------------------
+LINKER DEFINED CONSTANTS:
+   __rom_code_enabled = 0
+   __heap_start = 00001126
+  from segment 'text'
+   00001014 '__text__start'
+   0000111E '__text__end'
+   0000010A '__text__size'
+  from segment 'init'
+   00001000 '__init__start'
+   00001014 '__init__end'
+   00000014 '__init__size'
+  from segment 'bss'
+   00001124 '__bss__start'
+   00001126 '__bss__end'
+   00000002 '__bss__size'
+  from segment 'data'
+   00000000 '__data__start'
+   00000000 '__data__end'
+   00000000 '__data__size'
+  from segment 'rodata'
+   0000111E '__rodata__start'
+   00001124 '__rodata__end'
+   00000006 '__rodata__size'
+---------------------------
+GLOBAL SYMBOL(S):
+
+ in module: '_startup' of type 'O12' defined in file '_startup.o12'
+  in segment: 'init'
+   00001009 '_exit'
+   0000100F '_inthandler'
+   0000100C '_cli'
+   00001000 '__start'
+
+ in module: 'main' of type 'O12' defined in file 'main.o12'
+  in segment: 'text'
+   00001015 '_main'
+
+ in module: 'keyboardML15' of type 'O12' defined in file 'keyboardML15.o12'
+  in segment: 'text'
+   00001022 '_get_key'
+
+ in module: 'displayML15' of type 'O12' defined in file 'displayML15.o12'
+  in segment: 'text'
+   00001048 '_display_digits'
+   00001079 '_display_dec'
+
+ in module: 'clock' of type 'O12' defined in file 'clock.o12'
+  in segment: 'text'
+   00001105 '_hold'
+   000010CE '_init_clock'
+   000010FB '_get_time'
+   000010E9 '_clock_inter'
+---
+ End of listfile

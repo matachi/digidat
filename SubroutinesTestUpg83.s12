@@ -1,0 +1,14 @@
+		USE	Labdefs.s12
+		
+		ORG	$1000
+start:		LDAB	#$00
+		STAB	DCShadow
+		
+Loop:		LDAB	DipSwitch
+		JSR	Outone
+		LDAA	DCShadow
+		STAA	DrillControl
+		JMP	start
+		
+
+		USE	Subroutines.s12

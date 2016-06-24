@@ -1,0 +1,3 @@
+ML19_Stat		EQU	$0DC0
+ML19_AckIrq_1		EQU	$0DC2
+ML19_AckIrq_2		EQU	$0DC3

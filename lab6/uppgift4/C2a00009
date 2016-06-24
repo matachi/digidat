@@ -1,0 +1,185 @@
+* CC12 - GMV Cross C compiler (V 2.2.4a)
+* Standard integer promotion
+* optimization: -Osi -Op -Ordc
+* -g option supplied
+* Default Code generation: HCS12
+* Compiler Default segment names
+	SEGMENT	text
+	SEGMENT	bss
+	SEGMENT	data
+	SEGMENT	rodata
+	FILE	"Z:/home/matachi/programming/mc12/lab6/uppgift4/src/displayML15.c"
+
+;     1 | #include "port.h"
+;     2 | #include "displayML15.h"
+;     3 | 
+;     4 | void display_digits(unsigned char *c) {
+
+	SEGMENT	text
+
+	NOP
+
+	EXPORT	_display_digits	[r,2]
+_display_digits:
+
+.stab fstart _display_digits:4
+.stab stmt 4,1
+.stab sym F:display_digits:_display_digits:(typ0)(typ16-displayML15)
+.stab sym L:display_digits:c:3:(typ16-displayML15)
+.stab sym F:__func__:___func__:(typ11)
+.stab sym L:display_digits:counter:0:(typ3)
+	LEAS	-1,SP
+;     5 |   char counter = 0;
+.stab stmt 5,16
+	CLR	0,SP
+;     6 |   ML4OUT = 1;
+.stab stmt 6,2
+	LDAB	#1
+	STAB	$9C2
+;     7 |   ML4OUT2 = 0xD0;
+.stab stmt 7,2
+	LDAB	#$D0
+	STAB	$9C3
+;     8 |   ML4OUT = 0;
+.stab stmt 8,2
+	CLR	$9C2
+;     9 |   while (counter < 6) {
+.stab stmt 9,2
+_2:
+	LDAB	0,SP
+	CMPB	#6
+	BGE	_3
+;    10 |     ML4OUT2 = *c;
+.stab stmt 10,2
+	LDAB	[3,SP]
+	STAB	$9C3
+;    11 |     counter += 1;
+.stab stmt 11,5
+	INC	0,SP
+;    12 |     ++c;
+.stab stmt 12,5
+	LDY	3,SP
+	INY
+	STY	3,SP
+	BRA	_2
+_3:
+;    13 |   }
+;    14 |   ML4OUT2 = 0;
+.stab stmt 14,2
+	CLR	$9C3
+;    15 |   ML4OUT2 = 0;
+.stab stmt 15,2
+	CLR	$9C3
+.stab stmt 16,1
+.stab fexit 16,1
+;    16 | }
+	LEAS	1,SP
+	RTS
+.stab fend _display_digits:16
+	SEGMENT	rodata
+_5:
+	FCB	$0
+	FCB	$0
+	FCB	$0
+	FCB	$0
+	FCB	$0
+	FCB	$0
+;    17 | 
+;    18 | void display_dec(unsigned int i) {
+
+	SEGMENT	text
+
+	NOP
+
+	EXPORT	_display_dec	[r,2]
+_display_dec:
+
+.stab fstart _display_dec:18
+.stab stmt 18,1
+.stab sym F:display_dec:_display_dec:(typ0)(typ12)
+.stab sym L:display_dec:i:12:(typ12)
+.stab sym F:__func__:___func__:(typ11)
+.stab sym L:display_dec:counter:9:(typ3)
+.stab sym L:display_dec:div:7:(typ12)
+.stab sym L:display_dec:c:1:(typ18-displayML15)
+	LEAS	-10,SP
+;    19 |   char counter = 5;
+.stab stmt 19,16
+	LDAB	#5
+	STAB	9,SP
+;    20 |   unsigned int div = 1;
+.stab stmt 20,20
+	LDD	#1
+	STD	7,SP
+;    21 |   unsigned char c[6] = {0,0,0,0,0,0};
+.stab stmt 21,21
+	LEAX	1,SP
+	LDY	#_5
+	MOVW	2,Y+,2,X+
+	MOVW	2,Y+,2,X+
+	MOVW	2,Y+,2,X+
+;    22 |   while (counter >= 0) {
+.stab stmt 22,2
+_6:
+	TST	9,SP
+	BLT	_7
+;    23 |     c[counter] = (i / div) % 10;
+.stab stmt 23,5
+	LDD	12,SP
+	LDX	7,SP
+	IDIV
+	TFR	X,D
+	LDX	#$0A
+	IDIV
+	STAB	0,SP
+	LDAB	9,SP
+	SEX	B,D
+	LEAX	1,SP
+	LEAX	D,X
+	LDAB	0,SP
+	STAB	0,X
+;    24 |     div *= 10;
+.stab stmt 24,5
+	LDD	#$0A
+	LDY	7,SP
+	EMUL
+	STD	7,SP
+;    25 |     --counter;
+.stab stmt 25,5
+	DEC	9,SP
+	LBRA	_6
+_7:
+;    26 |   }
+;    27 |   display_digits(c);
+.stab stmt 27,3
+	LEAX	1,SP
+	PSHX
+	JSR	_display_digits
+	LEAS	2,SP
+.stab stmt 28,1
+.stab fexit 28,1
+;    28 | }
+	LEAS	10,SP
+	RTS
+.stab fend _display_dec:28
+
+
+* Symbol table for SLD
+.stab type  typ0 V (-1)
+.stab type  typ1 L (4)
+.stab type  typ2 l (4)
+.stab type  typ3 C (1)
+.stab type  typ4 c (1)
+.stab type  typ5 S (2)
+.stab type  typ6 s (2)
+.stab type  typ7 g (4)
+.stab type  typ8 G (4)
+.stab type  typ9 h (4)
+.stab type  typ10 R (2)
+.stab type  typ11 I (2)
+.stab type  typ12 i (2)
+.stab type  typ13 E (2)
+.stab type  typ14 F (2)
+.stab type  typ15 P (2)
+.stab type  typ16-displayML15 a *(typ4)
+.stab type  typ18-displayML15 A (6)(typ4)

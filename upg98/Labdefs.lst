@@ -1,0 +1,31 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Labdefs.lst
+                            1. #define RUNFAST
+                            2. #define SIMULATOR
+                            3. ;DipSwitch	EQU	$0600
+       0000 0700            4. HexDisplay	EQU	$0700
+       0000 0400            5. DrillControl	EQU	$0400
+                            6. #ifdef SIMULATOR
+       0000 0401            7. DrillStatus	EQU	$0401
+                           10. #endif
+       0000 0500           11. OutPort		EQU	$0500
+       0000 09C0           12. InPort		EQU	$9C0
+                           13. ;#ifdef		FAST
+                           14. ;DelayConst	FCB	$FF
+                           15. ;#else
+                           16. ;#endif
+                           17. 
+                           18. #ifdef SIMULATOR
+                           19. #ifdef RUNFAST
+       0000 0004           20. DelayConst	EQU	$4		; 450
+                           23. #endif
+                           26. #endif
+                           27. 
+                           28. 
+                           29. ;#ifndef 	DELCONST
+                           30. ;DelayConst	EQU	$02	;FDB
+                           31. ;#define 	DELCONST
+                           32. ;#endif

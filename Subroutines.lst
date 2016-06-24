@@ -1,0 +1,35 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Subroutines.lst
+                            1. 		USE	Labdefs.s12
+---- File: "Labdefs.s12"
+       0000 0600            2. DipSwitch	EQU	$0600
+       0000 0700            3. HexDisplay	EQU	$0700
+       0000 0400            4. DrillControl	EQU	$0400
+       0000 0401            5. DrillStatus	EQU	$0401
+                            6. ;#ifdef RUNFAaST
+                            7. ;DelayConst	EQU	#FF
+                            8. ;#else
+                            9. ;DelayConst	EQU	#FF
+                           10. ;#endif                           11. 
+---- File: "Z:\home\matachi\programming\mc12\Subroutines.s12"
+000000 00                  12. DCShadow	RMB	1
+000001 00                  13. tmp		RMB	1
+                           14. 
+000002 B6 00 00            15. Outzero:	LDAA	DCShadow
+000005 7B 00 01            16. 		STAB	tmp
+000008 51                  17. 		COMB
+000009 B4 00 01            18. 		ANDA	tmp
+00000C 7A 00 00            19. 		STAA	DCShadow
+00000F 7A 04 00            20. 		STAA	DrillControl
+000012 3D                  21. 		RTS
+000013                     22. 		
+000013 B6 00 00            23. Outone:		LDAA	DCShadow
+000016 7B 00 01            24. 		STAB	tmp
+000019 FA 00 01            25. 		ORAB	tmp
+00001C 7A 00 00            26. 		STAA	DCShadow
+00001F 7A 04 00            27. 		STAA	DrillControl
+000022 3D                  28. 		RTS
+000023                     29. 		

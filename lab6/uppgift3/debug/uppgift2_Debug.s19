@@ -1,0 +1,209 @@
+S0030000FC
+S1171000CF2FFF1610CE161015A720FD10EF3D1610E90B434F
+S1231014A7A71610FB3B1610791B8220F5A71B9E6980F609C06B81874756475647564756CE
+S12310344756475647566B80E780270220E4E6811B823DA71B9F6980C6017B09C2C6D07B99
+S123105409C37909C2E680C1062C10E6F300037B09C36280ED83026D8320EA7909C37909C7
+S1231074C31B813DA71B96C6056B89CC00016C871A81CD111E18027131180271311802714B
+S123109431E7892D29EC8CEE871810B754CE000A18106B80E689B7141A811AE6E6806B0090
+S12310B4CC000AED87136C8763891820FFD31A81341610481B821B8A3DA7A787C77C1124C9
+S12310D4CC100F7C3FF0C6807B0038C6107B003B16100C3DA7A7F60037CA807B0037FD11E9
+S12310F424027D11243DA7A7CD000AFC1124133DA71B9C1610FBE3866C821610FB6C80EC4E
+S10D111482AC802F0220F31B843DFF
+S109111E000000000000C7
+S10511240000C5
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:T:_startup: typ16-_startup A (0)(typ4)
+SX:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/main.c
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:keyboardML15$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/keyboardML15.c
+SX:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SX:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SX:C:S:L:keyboardML15:get_key:c:1:(typ4)
+SX:C:S:L:keyboardML15:get_key:e:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:displayML15$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/displayML15.c
+SX:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SX:C:S:L:displayML15:display_digits:c:3:(typ16-displayML15)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_digits:counter:0:(typ3)
+SX:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SX:C:S:L:displayML15:display_dec:i:12:(typ12)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_dec:counter:9:(typ3)
+SX:C:S:L:displayML15:display_dec:div:7:(typ12)
+SX:C:S:L:displayML15:display_dec:c:1:(typ18-displayML15)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:displayML15: typ16-displayML15 a *(typ4)
+SX:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:clock$Z:/home/matachi/programming/mc12/lab6/uppgift3/src/clock.c
+SX:C:S:F:clock:hold:_hold:(typ0)(typ11)
+SX:C:S:L:clock:hold:delay:6:(typ11)
+SX:C:S:F:clock:__func__:___func__:(typ11)
+SX:C:S:L:clock:hold:end:2:(typ11)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:20:1000
+SX:A:X:_startup:24:1003
+SX:A:X:_startup:25:1006
+SX:A:X:_startup:26:1009
+SX:A:X:_startup:27:100A
+SX:A:X:_startup:29:100C
+SX:A:X:_startup:30:100E
+SX:A:X:_startup:36:100F
+SX:A:X:_startup:37:1012
+SX:A:F:_startup:__start:1000:19
+SX:A:E:_startup:__start:1013:50
+SX:C:F:main:_main:00001015:6
+SX:C:X:main:6:1:1015
+SX:C:X:main:12:4:1016
+SX:C:X:main:13:7:1016
+SX:C:X:main:15:1:1021
+SX:C:Z:main:15:1:1021
+SX:C:E:main:_main:00001021:15
+SX:C:F:keyboardML15:_get_key:00001022:3
+SX:C:X:keyboardML15:3:1:1022
+SX:C:X:keyboardML15:4:21:1024
+SX:C:X:keyboardML15:5:2:1026
+SX:C:X:keyboardML15:6:5:1026
+SX:C:X:keyboardML15:7:5:102B
+SX:C:X:keyboardML15:8:14:103C
+SX:C:X:keyboardML15:9:7:1040
+SX:C:X:keyboardML15:12:2:1042
+SX:C:X:keyboardML15:13:1:1044
+SX:C:Z:keyboardML15:13:1:1044
+SX:C:E:keyboardML15:_get_key:00001047:13
+SX:C:F:displayML15:_display_digits:00001048:4
+SX:C:X:displayML15:4:1:1048
+SX:C:X:displayML15:5:16:104A
+SX:C:X:displayML15:6:2:104C
+SX:C:X:displayML15:7:2:1051
+SX:C:X:displayML15:8:2:1056
+SX:C:X:displayML15:9:2:1059
+SX:C:X:displayML15:10:2:105F
+SX:C:X:displayML15:11:5:1066
+SX:C:X:displayML15:12:5:1068
+SX:C:X:displayML15:14:2:106F
+SX:C:X:displayML15:15:2:1072
+SX:C:X:displayML15:16:1:1075
+SX:C:Z:displayML15:16:1:1075
+SX:C:E:displayML15:_display_digits:00001078:16
+SX:C:F:displayML15:_display_dec:00001079:18
+SX:C:X:displayML15:18:1:1079
+SX:C:X:displayML15:19:16:107B
+SX:C:X:displayML15:20:20:107F
+SX:C:X:displayML15:21:21:1084
+SX:C:X:displayML15:22:2:1095
+SX:C:X:displayML15:23:5:1099
+SX:C:X:displayML15:24:5:10B4
+SX:C:X:displayML15:25:5:10BC
+SX:C:X:displayML15:27:3:10C2
+SX:C:X:displayML15:28:1:10CA
+SX:C:Z:displayML15:28:1:10CA
+SX:C:E:displayML15:_display_dec:000010CD:28
+SX:C:F:clock:_init_clock:000010CE:9
+SX:C:X:clock:9:1:10CE
+SX:C:X:clock:10:3:10CF
+SX:C:X:clock:11:2:10D4
+SX:C:X:clock:12:2:10DA
+SX:C:X:clock:13:2:10DF
+SX:C:X:clock:14:3:10E4
+SX:C:X:clock:15:1:10E7
+SX:C:Z:clock:15:1:10E7
+SX:C:E:clock:_init_clock:000010E8:15
+SX:C:F:clock:_clock_inter:000010E9:17
+SX:C:X:clock:17:1:10E9
+SX:C:X:clock:18:1:10EA
+SX:C:X:clock:19:3:10F2
+SX:C:X:clock:20:1:10F9
+SX:C:Z:clock:20:1:10F9
+SX:C:E:clock:_clock_inter:000010FA:20
+SX:C:F:clock:_get_time:000010FB:22
+SX:C:X:clock:22:1:10FB
+SX:C:X:clock:24:2:10FC
+SX:C:X:clock:25:1:1103
+SX:C:Z:clock:25:1:1103
+SX:C:E:clock:_get_time:00001104:25
+SX:C:F:clock:_hold:00001105:27
+SX:C:X:clock:27:1:1105
+SX:C:X:clock:28:17:1107
+SX:C:X:clock:29:2:110E
+SX:C:X:clock:30:1:111B
+SX:C:Z:clock:30:1:111B
+SX:C:E:clock:_hold:0000111E:30
+SX:C:S:S:clock:clock:00001124:(typ11)

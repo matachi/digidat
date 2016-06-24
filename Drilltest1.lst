@@ -1,0 +1,16 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Drilltest1.lst
+                            1. 	USE	Labdefs.s12
+---- File: "Labdefs.s12"
+       0000 0600            2. DipSwitch	EQU	$0600
+       0000 0700            3. HexDisplay	EQU	$0700
+       0000 0400            4. DrillControl	EQU	$0400
+       0000 0401            5. DrillStatus	EQU	$0401001000                      6. 	ORG	$1000
+---- File: "Z:\home\matachi\programming\mc12\Drilltest1.s12"
+001000                      7. Dtest1:
+001000 B6 06 00             8. 	LDAA	DipSwitch	;Läs styrord
+001003 7A 04 00             9. 	STAA	DrillControl	;Skriv styrord
+001006 20 F8               10. 	BRA	Dtest1

@@ -1,0 +1,12 @@
+;#define FAST
+;DipSwitch	EQU	$0600
+HexDisplay	EQU	$0700
+DrillControl	EQU	$0400
+DrillStatus	EQU	$0401
+OutPort		EQU	$0500
+InPort		EQU	$0600
+#ifdef		FAST
+DelayConst	FCB	$FF
+#else
+DelayConst	FCB	$02
+#endif

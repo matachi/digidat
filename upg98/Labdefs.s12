@@ -1,0 +1,32 @@
+#define RUNFAST
+#define SIMULATOR
+;DipSwitch	EQU	$0600
+HexDisplay	EQU	$0700
+DrillControl	EQU	$0400
+#ifdef SIMULATOR
+DrillStatus	EQU	$0401
+#else
+DrillStatus	EQU	$600
+#endif
+OutPort		EQU	$0500
+InPort		EQU	$9C0
+;#ifdef		FAST
+;DelayConst	FCB	$FF
+;#else
+;#endif
+
+#ifdef SIMULATOR
+#ifdef RUNFAST
+DelayConst	EQU	$4		; 450
+#else
+DelayConst	EQU	$3
+#endif
+#else
+DelayConst	EQU	$A00		; 1400 = i takt
+#endif
+
+
+;#ifndef 	DELCONST
+;DelayConst	EQU	$02	;FDB
+;#define 	DELCONST
+;#endif

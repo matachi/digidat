@@ -1,0 +1,90 @@
+QA12 - MC68HC12 Absolute crossassembler, Version 1.6.3
+(c) GMV 1989-2012
+
+
+File: Drilltest2.lst
+001000                      1. 	ORG	$1000
+---- File: "Z:\home\matachi\programming\mc12\Drilltest2.s12"
+                            2. 	USE	Labdefs.s12
+---- File: "Labdefs.s12"
+                            3. ;#define FAST
+       0000 0600            4. DipSwitch	EQU	$0600
+       0000 0700            5. HexDisplay	EQU	$0700
+       0000 0400            6. DrillControl	EQU	$0400
+       0000 0401            7. DrillStatus	EQU	$0401
+001000                      8. #ifdef		FAST
+                           10. #else
+001000 02                  11. DelayConst	FCB	$02
+                           12. #endif001001 86 00               13. start:	LDAA	#0
+---- File: "Z:\home\matachi\programming\mc12\Drilltest2.s12"
+001003 7A 04 00            14. 	STAA	DrillControl
+001006 16 10 3E            15. 	JSR	TillRefPos
+001009                     16. 	;JSR	stopp
+001009 16 10 4D            17. 	JSR	Borra
+00100C 16 10 2B            18. 	JSR	Vrid1steg
+00100F 16 10 4D            19. 	JSR	Borra
+001012 16 10 2B            20. 	JSR	Vrid1steg
+001015 16 10 4D            21. 	JSR	Borra
+001018 16 10 2B            22. 	JSR	Vrid1steg
+00101B 16 10 2B            23. 	JSR	Vrid1steg
+00101E 16 10 2B            24. 	JSR	Vrid1steg
+001021 16 10 4D            25. 	JSR	Borra
+001024 16 10 68            26. 	JSR	GeLarm
+001027 A7                  27. stopp:	NOP
+001028 16 10 27            28. 	JSR	stopp
+                           29. 
+00102B 36                  30. Vrid1steg:	PSHA
+00102C 86 03               31. 		LDAA	#%011
+00102E 7A 04 00            32. 		STAA	DrillControl
+001031 16 10 7C            33. 		JSR	Delay
+001034 86 02               34. 		LDAA	#%010
+001036 7A 04 00            35. 		STAA	DrillControl
+001039 16 10 7C            36. 		JSR	Delay
+00103C 32                  37. 		PULA
+00103D 3D                  38. 		RTS
+00103E                     39. 		
+00103E B6 04 01            40. TillRefPos:	LDAA	DrillStatus
+001041 84 01               41. 		ANDA	#1
+001043 81 01               42. 		CMPA	#1
+001045 27 05               43. 		BEQ	TillRefPos_r	;Om b0 är 1 är borren i ref position, så returnera då
+001047 16 10 2B            44. 		JSR	Vrid1steg
+00104A 20 F2               45. 		BRA	TillRefPos
+00104C 3D                  46. TillRefPos_r:	RTS
+                           47. 
+00104D 36                  48. Borra:		PSHA
+00104E 37                  49. 		PSHB
+00104F 86 0C               50. 		LDAA	#%1100		; start and lower
+001051 7A 04 00            51. 		STAA	DrillControl
+001054 F6 04 01            52. Borra_ner:	LDAB	DrillStatus
+001057 C4 04               53. 		ANDB	#%100
+001059 C1 04               54. 		CMPB	#4
+00105B 26 F7               55. 		BNE	Borra_ner	;Wait for drill to go through metal
+00105D 86 00               56. 		LDAA	#0		;Drill is through, so pull it up again
+00105F 7A 04 00            57. 		STAA	DrillControl
+001062 33                  58. 		PULB
+001063 32                  59. 		PULA
+001064 16 10 7C            60. 		JSR	Delay
+001067 3D                  61. 		RTS
+001068                     62. 		
+001068 B6 04 00            63. GeLarm:		LDAA	DrillControl
+00106B 8A 10               64. 		ORAA	#%10000		;Ora drillcontrol med 1 på b4 för att aktivera larmet
+00106D 7A 04 00            65. 		STAA	DrillControl
+001070 16 10 7C            66. 		JSR	Delay		;Kör en delay så att larmet hörs en liten stund
+001073 B6 04 00            67. 		LDAA	DrillControl
+001076 84 0F               68. 		ANDA	#%01111		;Andra drillcontrol för att återställa larmet
+001078 7A 04 00            69. 		STAA	DrillControl
+00107B 3D                  70. 		RTS
+                           71. 
+00107C 37                  72. Delay:		PSHB
+00107D 36                  73. 		PSHA
+00107E 86 02               74. 		LDAA	#$2
+001080 F6 10 00            75. Delay_out_loop:	LDAB	DelayConst
+001083 53                  76. Delay_loop:	DECB
+001084 C1 00               77. 		CMPB	#0
+001086 26 FB               78. 		BNE	Delay_loop
+001088 43                  79. 		DECA
+001089 81 00               80. 		CMPA	#0
+00108B 26 F3               81. 		BNE	Delay_out_loop
+00108D 32                  82. 		PULA
+00108E 33                  83. 		PULB
+00108F 3D                  84. 		RTS

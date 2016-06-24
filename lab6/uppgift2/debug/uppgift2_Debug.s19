@@ -1,0 +1,152 @@
+S0030000FC
+S10D1000CF2FFF16100BA720FD539D
+S123100AA71B991A81CD10DE1802713118027131180271311610326B806B83CC6CBB3B1668
+S123102A10891B821B873DA71B9E6980F609C06B81874756475647564756475647564756C7
+S123104A6B80E780270220E4E6811B823DA71B9F6980C6017B09C2C6D07B09C37909C2E664
+S123106A80C1062C10E6F300037B09C36280ED83026D8320EA7909C37909C31B813DA71B49
+S123108A96C6056B89CC00016C871A81CD10E4180271311802713118027131E7892D29ECEB
+S12310AA8CEE871810B754CE000A18106B80E689B7141A811AE6E6806B00CC000AED871300
+S11710CA6C8763891820FFD31A81341610581B821B8A3D5306
+S10F10DE00000000000000000000000002
+S9031000EC
+SX:C:s:__start
+SX:A:M:_startup$Z:/home/matachi/programming/mc12/lab6/uppgift2/src/_startup.s12
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:main$Z:/home/matachi/programming/mc12/lab6/uppgift2/src/main.c
+SX:C:S:F:main:main:_main:(typ0)
+SX:C:S:F:main:__func__:___func__:(typ11)
+SX:C:S:L:main:main:c:1:(typ16-main)
+SX:C:S:L:main:main:k:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:main: typ16-main A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:keyboardML15$Z:/home/matachi/programming/mc12/lab6/uppgift2/src/keyboardML15.c
+SX:C:S:F:keyboardML15:get_key:_get_key:(typ4)
+SX:C:S:F:keyboardML15:__func__:___func__:(typ11)
+SX:C:S:L:keyboardML15:get_key:c:1:(typ4)
+SX:C:S:L:keyboardML15:get_key:e:0:(typ4)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:C:M:displayML15$Z:/home/matachi/programming/mc12/lab6/uppgift2/src/displayML15.c
+SX:C:S:F:displayML15:display_digits:_display_digits:(typ0)(typ16-displayML15)
+SX:C:S:L:displayML15:display_digits:c:3:(typ16-displayML15)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_digits:counter:0:(typ3)
+SX:C:S:F:displayML15:display_dec:_display_dec:(typ0)(typ12)
+SX:C:S:L:displayML15:display_dec:i:12:(typ12)
+SX:C:S:F:displayML15:__func__:___func__:(typ11)
+SX:C:S:L:displayML15:display_dec:counter:9:(typ3)
+SX:C:S:L:displayML15:display_dec:div:7:(typ12)
+SX:C:S:L:displayML15:display_dec:c:1:(typ18-displayML15)
+SX:C:T:  typ0 V (-1)
+SX:C:T:  typ1 L (4)
+SX:C:T:  typ2 l (4)
+SX:C:T:  typ3 C (1)
+SX:C:T:  typ4 c (1)
+SX:C:T:  typ5 S (2)
+SX:C:T:  typ6 s (2)
+SX:C:T:  typ7 g (4)
+SX:C:T:  typ8 G (4)
+SX:C:T:  typ9 h (4)
+SX:C:T:  typ10 R (2)
+SX:C:T:  typ11 I (2)
+SX:C:T:  typ12 i (2)
+SX:C:T:  typ13 E (2)
+SX:C:T:  typ14 F (2)
+SX:C:T:  typ15 P (2)
+SX:C:T:displayML15: typ16-displayML15 a *(typ4)
+SX:C:T:displayML15: typ18-displayML15 A (6)(typ4)
+SX:C:T: typ2 l (4)
+SX:C:T: typ4 c (1)
+SX:C:T: typ6 s (2)
+SX:A:X:_startup:7:1000
+SX:A:X:_startup:8:1003
+SX:A:X:_startup:9:1006
+SX:A:X:_startup:10:1007
+SX:A:F:_startup:__start:1000:6
+SX:A:E:_startup:__start:1009:11
+SX:C:F:main:_main:0000100B:5
+SX:C:X:main:5:1:100B
+SX:C:X:main:6:6:100D
+SX:C:X:main:8:5:101E
+SX:C:X:main:9:5:1023
+SX:C:X:main:11:5:1025
+SX:C:X:main:12:1:102E
+SX:C:Z:main:12:1:102E
+SX:C:E:main:_main:00001031:12
+SX:C:F:keyboardML15:_get_key:00001032:3
+SX:C:X:keyboardML15:3:1:1032
+SX:C:X:keyboardML15:4:21:1034
+SX:C:X:keyboardML15:5:2:1036
+SX:C:X:keyboardML15:6:5:1036
+SX:C:X:keyboardML15:7:5:103B
+SX:C:X:keyboardML15:8:14:104C
+SX:C:X:keyboardML15:9:7:1050
+SX:C:X:keyboardML15:12:2:1052
+SX:C:X:keyboardML15:13:1:1054
+SX:C:Z:keyboardML15:13:1:1054
+SX:C:E:keyboardML15:_get_key:00001057:13
+SX:C:F:displayML15:_display_digits:00001058:4
+SX:C:X:displayML15:4:1:1058
+SX:C:X:displayML15:5:16:105A
+SX:C:X:displayML15:6:2:105C
+SX:C:X:displayML15:7:2:1061
+SX:C:X:displayML15:8:2:1066
+SX:C:X:displayML15:9:2:1069
+SX:C:X:displayML15:10:2:106F
+SX:C:X:displayML15:11:5:1076
+SX:C:X:displayML15:12:5:1078
+SX:C:X:displayML15:14:2:107F
+SX:C:X:displayML15:15:2:1082
+SX:C:X:displayML15:16:1:1085
+SX:C:Z:displayML15:16:1:1085
+SX:C:E:displayML15:_display_digits:00001088:16
+SX:C:F:displayML15:_display_dec:00001089:18
+SX:C:X:displayML15:18:1:1089
+SX:C:X:displayML15:19:16:108B
+SX:C:X:displayML15:20:20:108F
+SX:C:X:displayML15:21:21:1094
+SX:C:X:displayML15:22:2:10A5
+SX:C:X:displayML15:23:5:10A9
+SX:C:X:displayML15:24:5:10C4
+SX:C:X:displayML15:25:5:10CC
+SX:C:X:displayML15:27:3:10D2
+SX:C:X:displayML15:28:1:10DA
+SX:C:Z:displayML15:28:1:10DA
+SX:C:E:displayML15:_display_dec:000010DD:28

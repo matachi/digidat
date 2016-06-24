@@ -1,0 +1,74 @@
+	ORG	$1000
+	USE	Labdefs.s12
+start:	LDAA	#0
+	STAA	DrillControl
+	JSR	TillRefPos
+	;JSR	stopp
+	JSR	Borra
+	JSR	Vrid1steg
+	JSR	Borra
+	JSR	Vrid1steg
+	JSR	Borra
+	JSR	Vrid1steg
+	JSR	Vrid1steg
+	JSR	Vrid1steg
+	JSR	Borra
+	JSR	GeLarm
+stopp:	NOP
+	JSR	stopp
+
+Vrid1steg:	PSHA
+		LDAA	#%011
+		STAA	DrillControl
+		JSR	Delay
+		LDAA	#%010
+		STAA	DrillControl
+		JSR	Delay
+		PULA
+		RTS
+		
+TillRefPos:	LDAA	DrillStatus
+		ANDA	#1
+		CMPA	#1
+		BEQ	TillRefPos_r	;Om b0 är 1 är borren i ref position, så returnera då
+		JSR	Vrid1steg
+		BRA	TillRefPos
+TillRefPos_r:	RTS
+
+Borra:		PSHA
+		PSHB
+		LDAA	#%1100		; start and lower
+		STAA	DrillControl
+Borra_ner:	LDAB	DrillStatus
+		ANDB	#%100
+		CMPB	#4
+		BNE	Borra_ner	;Wait for drill to go through metal
+		LDAA	#0		;Drill is through, so pull it up again
+		STAA	DrillControl
+		PULB
+		PULA
+		JSR	Delay
+		RTS
+		
+GeLarm:		LDAA	DrillControl
+		ORAA	#%10000		;Ora drillcontrol med 1 på b4 för att aktivera larmet
+		STAA	DrillControl
+		JSR	Delay		;Kör en delay så att larmet hörs en liten stund
+		LDAA	DrillControl
+		ANDA	#%01111		;Andra drillcontrol för att återställa larmet
+		STAA	DrillControl
+		RTS
+
+Delay:		PSHB
+		PSHA
+		LDAA	#$2
+Delay_out_loop:	LDAB	DelayConst
+Delay_loop:	DECB
+		CMPB	#0
+		BNE	Delay_loop
+		DECA
+		CMPA	#0
+		BNE	Delay_out_loop
+		PULA
+		PULB
+		RTS

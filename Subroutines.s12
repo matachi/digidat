@@ -1,0 +1,20 @@
+		USE	Labdefs.s12
+
+DCShadow	RMB	1
+tmp		RMB	1
+
+Outzero:	LDAA	DCShadow
+		STAB	tmp
+		COMB
+		ANDA	tmp
+		STAA	DCShadow
+		STAA	DrillControl
+		RTS
+		
+Outone:		LDAA	DCShadow
+		STAB	tmp
+		ORAA	tmp
+		STAA	DCShadow
+		STAA	DrillControl
+		RTS
+		

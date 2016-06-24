@@ -1,0 +1,12 @@
+void init_drill(void);
+void motorStart(void);
+void motorStop(void);
+void drillDown(void);
+void drillUp(void);
+int step(void);
+int nStep(int);
+int drillDownTest(void);
+void alarm(int);
+void drillHole(void);
+int refPos(void);
+void doAuto(void);
